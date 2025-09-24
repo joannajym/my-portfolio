@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #EE89B5;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.home-content {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
+}
+
+.intro-section {
+  height: 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0; /* Reduced space above intro */
+  padding-bottom: 150px;
+}
+
+.transition-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to bottom, 
+    rgba(238, 137, 181, 0) 0%, 
+    rgba(238, 137, 181, 1) 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+.intro-container {
+  padding: 0 10%;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Text Styles */
+.home-title {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  color: #FFF4F2;
+  margin-bottom: 2rem;
+  -webkit-text-stroke: 1.5px #494949;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.home-subtext {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: clamp(24px, 4vw, 40px);
+  color: #FFF4F2;
+  margin: 1rem 0;
+  -webkit-text-stroke: 1.2px #494949;
+  line-height: 0.5;
+  letter-spacing: -1.5px;
+}
+
+/* Scroll Prompt Container */
+.scroll-prompt-container {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px; /* Space between "Scroll" and heart */
+}
+
+/* Text "Scroll" */
+.scroll-prompt:first-child {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 20px;
+  color: rgba(255, 244, 242, 0.65);
+  animation: fade 1.5s ease-in-out infinite alternate;
+  padding: 10px;
+}
+
+/* Heart "-`♡´-" */
+.scroll-prompt:last-child {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 20px;
+  color: rgba(255, 244, 242, 0.65);
+  animation: bounce 1.2s ease-in-out infinite alternate;
+  transform: rotate(0deg); /* Explicitly reset rotation */
+}
+
+/* Animations */
+@keyframes fade {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(0deg); }
+}

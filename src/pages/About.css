@@ -1,0 +1,153 @@
+.about-section {
+  padding: 6rem 10%;
+  background-color: #EE89B5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* About section now comes directly after Home */
+  margin-top: -80px;
+  padding-top: 120px;
+  margin-bottom: -80px; /* Overlap with Projects section */
+  padding-bottom: 160px; /* Compensate for negative margin */
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* Prevents scroll jitter */
+}
+
+/* Gradient Transition Overlay to Projects */
+.about-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to bottom, 
+    rgba(238, 137, 181, 0) 0%, 
+    rgba(254, 204, 230, 1) 100%
+  );
+  backdrop-filter: blur(3px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.profile-image-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #EE89B5;
+  box-shadow: 0 8px 24px rgba(238, 137, 181, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 2.5rem;
+  color: #FFF4F2;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  -webkit-text-stroke: 0.1px #494949;
+}
+
+.profile-title {
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1.2rem;
+  color: #FFF4F2;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.profile-bio {
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #FFF4F2;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.detail-card h3 {
+  font-family: 'Tilt Warp', sans-serif;
+  color: #EE89B5;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.detail-card ul {
+  list-style-type: none;
+}
+
+.detail-card li {
+  font-family: 'Tilt Neon', sans-serif;
+  color: #666;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.detail-card li::before {
+  content: "•";
+  color: #EE89B5;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .profile-image-container {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
+  }
+  
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+}

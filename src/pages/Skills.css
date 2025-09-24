@@ -1,0 +1,149 @@
+.skills-section {
+  padding: 8rem 10% 12rem;
+  background-color: #FECCE6;
+  position: relative;
+  z-index: 2;
+  /* Add these 3 lines to fix transition */
+  margin-bottom: -80px; /* Pulls section down to overlap About */
+  padding-bottom: 160px; /* Compensate for negative margin */
+  overflow: hidden; /* Prevents scroll jitter */
+}
+
+/* Gradient Transition Overlay */
+.skills-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to bottom, 
+    rgba(254, 204, 230, 0) 0%, 
+    rgba(238, 137, 181, 1) 100%
+  );
+  backdrop-filter: blur(3px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-section-title {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: clamp(36px, 6vw, 70px);
+  color: #FFF4F2;
+  margin-bottom: 1rem;
+  -webkit-text-stroke: 0.1px #494949;
+  text-align: center;
+  letter-spacing: -2.5px;
+}
+
+.skills-section-subtitle {
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1.5rem;
+  color: #494949;
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0.9;
+}
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.skill-category-group {
+  margin-bottom: 2rem;
+}
+
+.category-title {
+  font-family: 'Tilt Warp', sans-serif;
+  color: #494949;
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 4rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.skill-icon-container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.skill-icon-img {
+  width: 75%; /* Makes image fill container */
+  height: 75%;
+  object-fit: contain; /* Ensures icon maintains aspect ratio */
+  transition: all 0.3s ease;
+}
+
+.skill-icon-text {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #EE89B5;
+}
+
+.skill-name {
+  font-family: 'Tilt Warp', sans-serif;
+  color: #494949;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.skill-item:hover .skill-icon-container {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(238, 137, 181, 0.2);
+  background: #EE89B5;
+}
+
+.skill-item:hover .skill-icon-img,
+.skill-item:hover .skill-icon-text {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 5rem 1.5rem;
+  }
+  
+  .skills-list {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
+  }
+  
+  .skill-icon-container {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .skill-icon-svg {
+    font-size: 2rem;
+  }
+}

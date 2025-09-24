@@ -1,0 +1,280 @@
+.projects-section {
+  padding: 8rem 10% 12rem;
+  background-color: #FECCE6;
+  position: relative;
+  z-index: 2;
+  /* Add these 3 lines to fix transition */
+  margin-top: -80px; /* Pulls section up to overlap About */
+  padding-top: 160px; /* Compensate for negative margin */
+  overflow: hidden; /* Prevents scroll jitter */
+}
+
+/* Gradient Transition Overlay from About section */
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to bottom, 
+    rgba(238, 137, 181, 1) 0%, 
+    rgba(254, 204, 230, 0) 100%
+  );
+  backdrop-filter: blur(3px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Keep all your existing styles below */
+.section-title {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: clamp(36px, 6vw, 70px);
+  color: #FFF4F2;
+  margin-bottom: 4rem;
+  -webkit-text-stroke: 0.1px #494949;
+  text-align: center;
+  letter-spacing: -2.5px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-subtitle {
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1.5rem;
+  color: #494949;
+  letter-spacing: 0px;
+  text-align: center;
+  padding-bottom: 80px;
+  margin-top: -50px;
+}
+
+/* Filter Styles */
+.filter-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: -2rem 0 2rem; /* Pull up closer to subtitle */
+}
+
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: transparent;
+  border: none;
+  color: #494949;
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.filter-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.filter-icon {
+  font-size: 1rem;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 100;
+  width: 220px;
+  margin-top: 8px;
+}
+
+.filter-section {
+  margin-bottom: 1rem;
+}
+
+.filter-section h4 {
+  font-family: 'Tilt Neon', sans-serif;
+  color: #494949;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Tilt Neon', sans-serif;
+  color: #666;
+  font-size: 1.1rem;
+  padding: 0.3rem 0;
+  cursor: pointer;
+}
+
+.filter-option input {
+  accent-color: #EE89B5;
+  cursor: pointer;
+}
+
+.clear-filters {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #EE89B5;
+  color: #EE89B5;
+  font-family: 'Tilt Neon', sans-serif;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-filters:hover {
+  background: rgba(238, 137, 181, 0.1);
+}
+
+/* Active filter indicator */
+.filter-toggle.active {
+  background: rgba(238, 137, 181, 0.2);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #FFF4F2;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(238, 137, 181, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="%23FFF4F2" stroke="%23494949" stroke-width="0.5" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"/></svg>') 16 16, pointer !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(238, 137, 181, 0.1) 0%, rgba(254, 204, 230, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(238, 137, 181, 0.3);
+  border-color: #EE89B5;
+  background: #FFF8F6;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:active {
+  transform: translateY(-6px) scale(1.01);
+  transition: all 0.1s ease;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.project-year {
+  font-family: 'Tilt Warp', sans-serif;
+  background-color: #EE89B5;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.project-title {
+  font-family: 'Tilt Warp', sans-serif;
+  color: #494949;
+  font-size: 1.5rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.project-description {
+  font-family: 'Tilt Neon', sans-serif;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  font-family: 'Tilt Neon', sans-serif;
+  background-color: #CFDFF8;
+  color: #9A9A9A;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="%23FFF4F2" stroke="%23494949" stroke-width="0.5" stroke-linejoin="round" d="M10 11V8.99c0-.88.59-1.64 1.44-1.86h.05A1.99 1.99 0 0 1 14 9.05V12v-2c0-.88.6-1.65 1.46-1.87h.05A1.98 1.98 0 0 1 18 10.06V13v-1.94a2 2 0 0 1 1.51-1.94h0A2 2 0 0 1 22 11.06V14c0 .6-.08 1.27-.21 1.97a7.96 7.96 0 0 1-7.55 6.48 54.98 54.98 0 0 1-4.48 0 7.96 7.96 0 0 1-7.55-6.48C2.08 15.27 2 14.59 2 14v-1.49c0-1.11.9-2.01 2.01-2.01h0a2 2 0 0 1 2.01 2.03l-.01.97v-10c0-1.1.9-2 2-2h0a2 2 0 0 1 2 2V11Z"/></svg>') 16 16, pointer !important;
+}
+
+.project-tag:hover {
+  background-color: #EE89B5;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(238, 137, 181, 0.3);
+}
+
+/* Additional hover effects for better visual feedback */
+.project-card:hover .project-title {
+  color: #EE89B5;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-year {
+  background-color: #494949;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Add this to your existing media query */
+@media (max-width: 768px) {
+  .filter-wrapper {
+    justify-content: center;
+    margin: 0.5rem 0 1.5rem;
+  }
+  
+  .filter-dropdown {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

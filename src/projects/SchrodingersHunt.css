@@ -1,0 +1,403 @@
+.schrodingers-hunt-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #FECCE6 100%);
+  padding: 0;
+  margin: 0;
+}
+
+.schrodingers-hunt-header {
+  background-color: #EE89B5;
+  padding: 2rem 10%;
+  text-align: center;
+  position: relative;
+}
+
+.schrodingers-back-button {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #FFF4F2;
+  color: #494949;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Tilt Neon', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.schrodingers-back-button:hover {
+  background-color: #FECCE6;
+  transform: translateY(-50%) translateX(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.schrodingers-hunt-title {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: clamp(36px, 6vw, 70px);
+  color: #FFF4F2;
+  margin: 0 0 1rem 0;
+  letter-spacing: -2.5px;
+  -webkit-text-stroke: 0.1px #494949;
+}
+
+.schrodingers-hunt-subtitle {
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1.3rem;
+  color: #FFF4F2;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.schrodingers-hunt-content {
+  padding: 2rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.schrodingers-container {
+  max-width: 1400px;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin-top: 20px;
+}
+
+.schrodingers-project-overview {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #F3B0C3;
+}
+
+.schrodingers-project-overview h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+  .schrodingers-project-overview p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2c3e50;
+    font-family: 'Tilt Neon', sans-serif;
+  }
+
+  .schrodingers-project-overview h4 {
+    color: #2c3e50;
+    font-family: 'Tilt Warp', sans-serif;
+    font-size: 1.4rem;
+    margin: 25px 0 15px 0;
+    font-weight: 600;
+  }
+
+.schrodingers-solution-approach {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #FEE1E8;
+}
+
+.schrodingers-solution-approach h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.schrodingers-solution-approach p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 15px;
+}
+
+  .schrodingers-technical-details {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border-left: 5px solid #DBE6DB;
+  }
+
+  .schrodingers-key-findings {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border-left: 5px solid #B9CBE8;
+  }
+
+  .schrodingers-key-findings h3 {
+    color: #2c3e50;
+    font-family: 'Tilt Warp', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+.findings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.findings-subsection {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.findings-subsection h4 {
+  color: #219c9a;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.findings-subsection ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.findings-subsection li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 8px;
+}
+
+.schrodingers-technical-details h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+  .schrodingers-technical-details p {
+    color: #2c3e50;
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .schrodingers-notebook-section {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border-left: 5px solid #f9e9d5;
+  }
+
+  .schrodingers-notebook-section h3 {
+    color: #2c3e50;
+    font-family: 'Tilt Warp', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .schrodingers-notebook-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2c3e50;
+    font-family: 'Tilt Neon', sans-serif;
+    margin-bottom: 20px;
+  }
+
+  .notebook-iframe {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+
+  /* Override Jupyter notebook italic styling */
+  .notebook-iframe * {
+    font-style: normal !important;
+  }
+
+  .notebook-iframe .highlight *,
+  .notebook-iframe .cm-em,
+  .notebook-iframe .cm-comment,
+  .notebook-iframe .jp-RenderedHTMLCommon * {
+    font-style: normal !important;
+  }
+
+  .formula-image-container {
+    text-align: center;
+    margin: 25px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .formula-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+  }
+
+  .parameter-list {
+    margin: 25px auto;
+    max-width: 600px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .parameter-list li {
+    margin-bottom: 12px;
+    padding: 8px 0;
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 1rem;
+    color: #2c3e50;
+    line-height: 1.5;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .parameter-list li:last-child {
+    border-bottom: none;
+  }
+
+  .parameter-list strong {
+    color: #2c3e50;
+    font-weight: 600;
+  }
+
+  .assumptions-list {
+    margin: 25px 0;
+    padding: 0;
+    list-style: disc;
+    padding-left: 20px;
+  }
+
+  .assumptions-list li {
+    margin-bottom: 12px;
+    padding: 8px 0;
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 1rem;
+    color: #2c3e50;
+    line-height: 1.5;
+  }
+
+  .findings-list {
+    margin: 25px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .findings-list li {
+    margin-bottom: 20px;
+    padding: 15px 0;
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 1rem;
+    color: #2c3e50;
+    line-height: 1.6;
+    border-bottom: 1px solid #e9ecef;
+    padding-left: 25px;
+    position: relative;
+  }
+
+  .findings-list li:last-child {
+    border-bottom: none;
+  }
+
+  .findings-list li::before {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    font-size: 1.2rem;
+  }
+
+  .schrodingers-key-findings .findings-list strong {
+    color: #219c9a !important;
+    font-weight: 600;
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .schrodingers-back-button {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  
+  .schrodingers-hunt-header {
+    padding: 2rem 5%;
+  }
+  
+  .schrodingers-hunt-content {
+    padding: 2rem 3%;
+  }
+  
+  .schrodingers-container {
+    padding: 25px;
+    margin-top: 10px;
+    max-width: 95vw;
+  }
+  
+  .schrodingers-project-overview,
+  .schrodingers-solution-approach,
+  .schrodingers-technical-details,
+  .schrodingers-key-findings,
+  .schrodingers-notebook-section {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .findings-subsection {
+    padding: 15px;
+  }
+  
+  .schrodingers-hunt-title {
+    font-size: clamp(24px, 8vw, 48px);
+  }
+  
+  .schrodingers-hunt-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .schrodingers-project-overview h3,
+  .schrodingers-solution-approach h3,
+  .schrodingers-technical-details h3,
+  .schrodingers-key-findings h3 {
+    font-size: 1.5rem;
+  }
+
+  .schrodingers-project-overview h4 {
+    font-size: 1.2rem;
+    margin: 20px 0 12px 0;
+  }
+  
+  .findings-subsection h4 {
+    font-size: 1.1rem;
+  }
+  
+  .findings-subsection li {
+    font-size: 0.95rem;
+  }
+  
+  .schrodingers-project-overview p,
+  .schrodingers-solution-approach p,
+  .schrodingers-technical-details p {
+    font-size: 1rem;
+  }
+}

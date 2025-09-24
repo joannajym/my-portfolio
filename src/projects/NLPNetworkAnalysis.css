@@ -1,0 +1,398 @@
+.nlp-network-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #FECCE6 100%);
+  padding: 0;
+  margin: 0;
+}
+
+.nlp-network-header {
+  background-color: #EE89B5;
+  padding: 2rem 10%;
+  text-align: center;
+  position: relative;
+}
+
+.nlp-network-back-button {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #FFF4F2;
+  color: #494949;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Tilt Neon', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nlp-network-back-button:hover {
+  background-color: #FECCE6;
+  transform: translateY(-50%) translateX(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nlp-network-title {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: clamp(36px, 6vw, 70px);
+  color: #FFF4F2;
+  margin: 0 0 1rem 0;
+  letter-spacing: -2.5px;
+  -webkit-text-stroke: 0.1px #494949;
+}
+
+.nlp-network-subtitle {
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1.3rem;
+  color: #FFF4F2;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.nlp-network-content {
+  padding: 2rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nlp-network-container {
+  max-width: 1400px;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin-top: 20px;
+}
+
+.nlp-network-project-overview {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #F3B0C3;
+}
+
+.nlp-network-project-overview h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.nlp-network-project-overview p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+}
+
+.nlp-network-project-overview ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.nlp-network-project-overview li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 8px;
+}
+
+.nlp-network-methodology {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #DBE6DB;
+}
+
+.nlp-network-methodology h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.methodology-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.methodology-subsection {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.methodology-subsection h4 {
+  color: #219c9a;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.methodology-subsection p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 15px;
+}
+
+.methodology-subsection ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.methodology-subsection li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 8px;
+}
+
+.nlp-network-insights {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #B9CBE8;
+}
+
+.nlp-network-insights h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.insights-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.insights-subsection {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.insights-subsection h4 {
+  color: #219c9a;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.insights-subsection p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 15px;
+}
+
+.insights-subsection ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.insights-subsection li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 8px;
+}
+
+.nlp-network-outcomes {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #f9e9d5;
+}
+
+.nlp-network-outcomes h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.outcomes-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.outcomes-subsection {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.outcomes-subsection h4 {
+  color: #219c9a;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.outcomes-subsection p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 15px;
+}
+
+.outcomes-subsection ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.outcomes-subsection li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 8px;
+}
+
+.nlp-network-documentation-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #ecc2ca;
+}
+
+.nlp-network-documentation-section h3 {
+  color: #2c3e50;
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.nlp-network-documentation-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-family: 'Tilt Neon', sans-serif;
+  margin-bottom: 20px;
+}
+
+.pdf-container {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-iframe {
+  border: none;
+  display: block;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nlp-network-back-button {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  
+  .nlp-network-header {
+    padding: 2rem 5%;
+  }
+  
+  .nlp-network-content {
+    padding: 2rem 3%;
+  }
+  
+  .nlp-network-container {
+    padding: 25px;
+    margin-top: 10px;
+    max-width: 95vw;
+  }
+  
+  .nlp-network-project-overview,
+  .nlp-network-methodology,
+  .nlp-network-insights,
+  .nlp-network-outcomes,
+  .nlp-network-documentation-section {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .methodology-subsection,
+  .insights-subsection,
+  .outcomes-subsection {
+    padding: 15px;
+  }
+  
+  .nlp-network-title {
+    font-size: clamp(24px, 8vw, 48px);
+  }
+  
+  .nlp-network-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .nlp-network-project-overview h3,
+  .nlp-network-methodology h3,
+  .nlp-network-insights h3,
+  .nlp-network-outcomes h3,
+  .nlp-network-documentation-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .nlp-network-project-overview p,
+  .nlp-network-methodology p,
+  .nlp-network-insights p,
+  .nlp-network-outcomes p,
+  .nlp-network-documentation-section p,
+  .methodology-subsection p,
+  .insights-subsection p,
+  .outcomes-subsection p {
+    font-size: 1rem;
+  }
+  
+  .pdf-iframe {
+    height: 600px;
+  }
+  
+  .nlp-network-project-overview li {
+    font-size: 0.95rem;
+  }
+  
+  .methodology-subsection h4,
+  .insights-subsection h4,
+  .outcomes-subsection h4 {
+    font-size: 1.1rem;
+  }
+  
+  .methodology-subsection li,
+  .insights-subsection li,
+  .outcomes-subsection li {
+    font-size: 0.95rem;
+  }
+}
+
