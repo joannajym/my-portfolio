@@ -113,7 +113,7 @@ const SchrodingersHunt = () => {
             <h3>Jupyter Notebook Analysis</h3>
             <p>Explore the complete analysis and code implementation:</p>
             <iframe 
-              src="/Schrödinger's Hunt.html"
+              src={`${process.env.PUBLIC_URL}/Schrödinger's Hunt.html`}
               width="100%"
               height="800px"
               title="Schrodinger's Hunt Notebook"

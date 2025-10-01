@@ -176,7 +176,7 @@ const COVID19ProsocialBehaviour = () => {
             <p>Explore the complete project documentation and detailed analysis:</p>
             <div className="pdf-container">
               <iframe 
-                src="/COVID-19 Pro-social Behaviour Analysis.pdf"
+                src={`${process.env.PUBLIC_URL}/COVID-19 Pro-social Behaviour Analysis.pdf`}
                 width="100%"
                 height="800px"
                 title="COVID-19 Prosocial Behaviour Analysis Documentation"

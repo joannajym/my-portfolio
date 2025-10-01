@@ -173,7 +173,7 @@ const NLPNetworkAnalysis = () => {
             <p>Explore the complete project documentation and detailed analysis:</p>
             <div className="pdf-container">
               <iframe 
-                src="/NLP Network Analysis.pdf"
+                src={`${process.env.PUBLIC_URL}/NLP Network Analysis.pdf`}
                 width="100%"
                 height="800px"
                 title="NLP and Network Analysis Documentation"
