@@ -156,7 +156,7 @@ const WeatheredGameOfOz = () => {
             <p>Explore the complete project documentation and detailed analysis:</p>
             <div className="pdf-container">
               <iframe 
-                src={`${process.env.PUBLIC_URL}/Weathered Game of Oz.pdf`}
+                src={`${process.env.PUBLIC_URL}/Weathered%20Game%20of%20Oz.pdf`}
                 width="100%"
                 height="800px"
                 title="Weathered Game of Oz Documentation"
@@ -167,7 +167,7 @@ const WeatheredGameOfOz = () => {
               <h4>Source Code</h4>
               <div className="source-code-container">
                 <iframe 
-                  src={`${process.env.PUBLIC_URL}/The Weathered Game of Oz Source Code.html`}
+                  src={`${process.env.PUBLIC_URL}/The%20Weathered%20Game%20of%20Oz%20Source%20Code.html`}
                   width="100%"
                   height="600px"
                   title="Weathered Game of Oz Source Code"

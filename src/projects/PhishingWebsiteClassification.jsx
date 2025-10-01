@@ -177,7 +177,7 @@ const PhishingWebsiteClassification = () => {
             <p>Explore the complete project documentation and detailed analysis:</p>
             <div className="pdf-container">
               <iframe 
-                src={`${process.env.PUBLIC_URL}/Phishing Website Classification.pdf`}
+                src={`${process.env.PUBLIC_URL}/Phishing%20Website%20Classification.pdf`}
                 width="100%"
                 height="800px"
                 title="Phishing Website Classification Documentation"
