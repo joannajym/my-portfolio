@@ -1,7 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { gsap } from 'gsap';
 import { FiFilter } from 'react-icons/fi';
 import './Projects.css';
 
@@ -69,6 +67,13 @@ const projects = [
     year: "2024"
   },
   {
+    title: "Faire",
+    description: "A hackathon project designed to make digital learning more accessible for students with dyslexia.",
+    tags: ["HTML", "CSS", "NextJS"],
+    year: "2025",
+    id: "faire"
+  },
+  {
     title: "Castly",
     description: "A full-stacked web application enabling secure, transparent digital elections for university clubs.",
     tags: ["ReactJS", "NodeJS", "JavaScript", "MongoDB", "ChartJS", "HTML", "CSS", "Figma"],
@@ -102,10 +107,15 @@ const projects = [
 
 const Projects = () => {
   const projectsRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
   const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedYears, setSelectedYears] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([]);
+  const [isTitleVisible, setIsTitleVisible] = useState(false);
+  const [isSubtitleVisible, setIsSubtitleVisible] = useState(false);
+  const [visibleCards, setVisibleCards] = useState(new Set());
 
   // Get unique filters
   const years = [...new Set(projects.map(p => p.year))].sort();
@@ -135,33 +145,88 @@ const Projects = () => {
       navigate('/nlp-network-analysis');
     } else if (project.id === "phishing-website-classification") {
       navigate('/phishing-website-classification');
+    } else if (project.id === "faire") {
+      navigate('/faire');
     } else {
       // For other projects, you can add more functionality later
       console.log("Clicked on project:", project.title);
     }
   };
 
-  // Animation setup
-  React.useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
+  // Animation setup for title and subtitle
+  useEffect(() => {
+    const titleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTitleVisible(true);
+          titleObserver.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    const subtitleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSubtitleVisible(true);
+          subtitleObserver.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    if (titleRef.current) {
+      titleObserver.observe(titleRef.current);
+    }
+
+    if (subtitleRef.current) {
+      subtitleObserver.observe(subtitleRef.current);
+    }
+
+    return () => {
+      if (titleRef.current) {
+        titleObserver.unobserve(titleRef.current);
+      }
+      if (subtitleRef.current) {
+        subtitleObserver.unobserve(subtitleRef.current);
+      }
+    };
+  }, []);
+
+  // Animation setup for project cards using IntersectionObserver
+  useEffect(() => {
     const projectCards = projectsRef.current?.querySelectorAll('.project-card');
     
-    projectCards?.forEach(card => {
-      gsap.fromTo(card,
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-            toggleActions: "play none none none"
+    if (!projectCards) return;
+
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index, 10);
+            setVisibleCards((prev) => new Set([...prev, index]));
+            cardObserver.unobserve(entry.target);
           }
-        }
-      );
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    projectCards.forEach((card) => {
+      cardObserver.observe(card);
     });
+
+    return () => {
+      projectCards.forEach((card) => {
+        cardObserver.unobserve(card);
+      });
+    };
   }, [filteredProjects]);
 
   const toggleFilter = (type, value) => {
@@ -185,11 +250,43 @@ const Projects = () => {
     setSelectedLanguages([]);
   };
 
+  // Helper function to get animation class based on grid position
+  const getAnimationClass = (index) => {
+    // Get grid container
+    const gridContainer = projectsRef.current?.querySelector('.projects-grid');
+    if (!gridContainer) return 'slide-from-bottom';
+
+    // Get the computed grid column count
+    const gridComputedStyle = window.getComputedStyle(gridContainer);
+    const gridColumnCount = gridComputedStyle.getPropertyValue('grid-template-columns').split(' ').length;
+
+    // Determine which column the card is in (0-indexed)
+    const columnIndex = index % gridColumnCount;
+
+    if (columnIndex === 0) {
+      return 'slide-from-left';
+    } else if (columnIndex === gridColumnCount - 1) {
+      return 'slide-from-right';
+    } else {
+      return 'slide-from-bottom';
+    }
+  };
+
   return (
     <section id="projects" className="projects-section" ref={projectsRef}>
       <div className="section-header">
-        <h2 className="section-title">Projects</h2>
-        <p className="section-subtitle">An archive collection of my university projects</p>
+        <h2 
+          ref={titleRef}
+          className={`section-title ${isTitleVisible ? 'animate' : ''}`}
+        >
+          Projects
+        </h2>
+        <p 
+          ref={subtitleRef}
+          className={`section-subtitle ${isSubtitleVisible ? 'animate' : ''}`}
+        >
+          An archive collection of my university projects
+        </p>
         
         {/* Filter Button */}
         <div className="filter-wrapper">
@@ -246,8 +343,9 @@ const Projects = () => {
       <div className="projects-grid">
         {filteredProjects.map((project, index) => (
           <div 
-            key={index} 
-            className="project-card"
+            key={index}
+            data-index={index}
+            className={`project-card ${visibleCards.has(index) ? getAnimationClass(index) : ''}`}
             onClick={() => handleProjectClick(project)}
             style={{ cursor: 'pointer' }}
           >

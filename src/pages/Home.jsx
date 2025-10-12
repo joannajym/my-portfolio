@@ -1,5 +1,6 @@
 import React from 'react';
-import BlurReveal from '../components/BlurReveal';
+import BlurText from '../components/BlurText';
+import TypeWriter from '../components/TypeWriter';
 import ScrollReveal from '../components/ScrollReveal';
 import Waves from '../components/Waves';
 import './Home.css';
@@ -24,57 +25,38 @@ const Home = () => {
 
       {/* Content */}
       <div className="home-content">
-        <BlurReveal
+        <BlurText
           text="My Virtual Space"
           className="home-title"
-          delay={0.3}
-          duration={1.5}
-          blurAmount={6}
-          revealDistance={60}
+          delay={250}
+          animateBy="words"
+          direction="top"
+          stepDuration={0.6}
         />
 
-        <BlurReveal
+        <TypeWriter
           text="Hi! Welcome to my virtual portfolio."
           className="home-subtext"
-          delay={0.7}
-          duration={1.4}
-          blurAmount={4}
-          revealDistance={40}
+          delay={2}
+          speed={50}
         />
-
-        <BlurReveal
+        
+        <TypeWriter
           text="Feel free to explore this space :)"
           className="home-subtext"
-          delay={1.1}
-          duration={1.4}
-          blurAmount={4}
-          revealDistance={40}
+          delay={4.5}
+          speed={50}
         />
-
-        <div className="scroll-prompt-container">
-          <p className="scroll-prompt">Scroll</p>
-          <p className="scroll-prompt">-`♡´-</p>
-        </div>
       </div>
 
-      {/* Transition Overlay */}
-      <div className="transition-overlay"></div>
-
-      {/* Intro Section */}
-      <div className="intro-section">
-        <div className="intro-container">
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={5}
-            blurStrength={10}
-          >
-            Thank you for visiting my website! 
-            Here, you can find archives of all the projects that I've worked on throughout my academic years. 
-            I hope to continue making meaningful projects that sparks joy in my life.
-          </ScrollReveal>
-        </div>
+      {/* Scroll Prompt - positioned outside content to avoid blur */}
+      <div className="scroll-prompt-container">
+        <p className="scroll-prompt">Scroll</p>
+        <p className="scroll-prompt">-`♡´-</p>
       </div>
+
+      {/* Gradient Overlay */}
+      <div className="gradient-overlay-bottom"></div>
     </section>
   );
 };

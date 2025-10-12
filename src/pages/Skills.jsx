@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Skills.css';
 import pythonIcon from '../assets/skills-icons/python-icon.png';
 import javaIcon from '../assets/skills-icons/java-icon.png';
@@ -19,18 +19,122 @@ import microsoftExcelIcon from '../assets/skills-icons/microsoft-excel-icon.png'
 import gitIcon from '../assets/skills-icons/git-icon.png';
 import linuxIcon from '../assets/skills-icons/linux-icon.png';
 import sapIcon from '../assets/skills-icons/sap-icon.png';
-import vegaLiteIcon from '../assets/skills-icons/vega-lite-icon.png'
+import vegaLiteIcon from '../assets/skills-icons/vega-lite-icon.png';
+import figmaIcon from '../assets/skills-icons/figma-icon.png';
+import nextjsIcon from '../assets/skills-icons/nextjs-icon.png';
 
 const Skills = () => {
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const [isTitleVisible, setIsTitleVisible] = useState(false);
+  const [isSubtitleVisible, setIsSubtitleVisible] = useState(false);
+  const [visibleCategories, setVisibleCategories] = useState(new Set());
+  const [visibleCards, setVisibleCards] = useState(new Set());
+
+  // Animation setup for title and subtitle
+  useEffect(() => {
+    const titleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTitleVisible(true);
+          titleObserver.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    const subtitleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSubtitleVisible(true);
+          subtitleObserver.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    if (titleRef.current) {
+      titleObserver.observe(titleRef.current);
+    }
+
+    if (subtitleRef.current) {
+      subtitleObserver.observe(subtitleRef.current);
+    }
+
+    return () => {
+      if (titleRef.current) {
+        titleObserver.unobserve(titleRef.current);
+      }
+      if (subtitleRef.current) {
+        subtitleObserver.unobserve(subtitleRef.current);
+      }
+    };
+  }, []);
+
+  // Animation setup for category titles and skill cards
+  useEffect(() => {
+    const categoryTitles = document.querySelectorAll('.category-title');
+    const skillCards = document.querySelectorAll('.skill-item');
+
+    const categoryObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.categoryIndex, 10);
+            setVisibleCategories((prev) => new Set([...prev, index]));
+            categoryObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = entry.target.dataset.cardIndex;
+            setVisibleCards((prev) => new Set([...prev, index]));
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    categoryTitles.forEach((title) => {
+      categoryObserver.observe(title);
+    });
+
+    skillCards.forEach((card) => {
+      cardObserver.observe(card);
+    });
+
+    return () => {
+      categoryTitles.forEach((title) => {
+        categoryObserver.unobserve(title);
+      });
+      skillCards.forEach((card) => {
+        cardObserver.unobserve(card);
+      });
+    };
+  }, []);
+
   const skillCategories = [
     {
-      name: 'Languages',
+      name: 'Programming Languages',
       skills: [
         { name: 'Python', icon: pythonIcon },
         { name: 'Java', icon: javaIcon },
         { name: 'JavaScript', icon: javascriptIcon },
-        { name: 'HTML5', icon: html5Icon },
-        { name: 'CSS3', icon: css3Icon },
         { name: 'R', icon: rProjectIcon }
       ]
     },
@@ -41,7 +145,8 @@ const Skills = () => {
         { name: 'Pandas', icon: pandasIcon },
         { name: 'Power BI', icon: powerBiIcon },
         { name: 'Tableau', icon: tableauIcon },
-        { name: 'Vega-lite', icon: vegaLiteIcon }
+        { name: 'Vega-lite', icon: vegaLiteIcon },
+        { name: 'Microsoft Excel', icon: microsoftExcelIcon }
       ]
     },
     {
@@ -49,7 +154,11 @@ const Skills = () => {
       skills: [
         { name: 'ReactJS', icon: reactIcon },
         { name: 'NodeJS', icon: nodejsIcon },
-        { name: 'MongoDB', icon: mongodbIcon }
+        { name: 'NextJS', icon: nextjsIcon },
+        { name: 'MongoDB', icon: mongodbIcon },
+        { name: 'HTML5', icon: html5Icon },
+        { name: 'CSS3', icon: css3Icon },
+        { name: 'Figma', icon: figmaIcon }
       ]
     },
     {
@@ -64,35 +173,57 @@ const Skills = () => {
       skills: [
         { name: 'Git', icon: gitIcon },
         { name: 'Linux', icon: linuxIcon },
-        { name: 'Microsoft Excel', icon: microsoftExcelIcon },
         { name: 'SAP S/4 HANA', icon: sapIcon }
       ]
     }
   ];
 
+
   return (
     <section id="skills" className="skills-section">
       <div className="skills-container">
-        <h2 className="skills-section-title">Skills</h2>
-        <p className="skills-section-subtitle">Technologies I work with</p>
+        <h2 
+          ref={titleRef}
+          className={`skills-section-title ${isTitleVisible ? 'animate' : ''}`}
+        >
+          Skills
+        </h2>
+        <p 
+          ref={subtitleRef}
+          className={`skills-section-subtitle ${isSubtitleVisible ? 'animate' : ''}`}
+        >
+          Technology stacks I work with
+        </p>
 
         <div className="skills-categories">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="skill-category-group">
-              <h3 className="category-title">{category.name}</h3>
+          {skillCategories.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="skill-category-group">
+              <h3 
+                className={`category-title ${visibleCategories.has(categoryIndex) ? 'slide-from-left' : ''}`}
+                data-category-index={categoryIndex}
+              >
+                {category.name}
+              </h3>
               <div className="skills-list">
-                {category.skills.map((skill, i) => (
-                  <div key={i} className="skill-item">
-                    <div className="skill-icon-container">
-                      <img 
-                        src={skill.icon} 
-                        alt={skill.name} 
-                        className="skill-icon-img"
-                      />
+                {category.skills.map((skill, skillIndex) => {
+                  const cardIndex = `${categoryIndex}-${skillIndex}`;
+                  return (
+                    <div 
+                      key={skillIndex} 
+                      className={`skill-item ${visibleCards.has(cardIndex) ? 'slide-from-top' : ''}`}
+                      data-card-index={cardIndex}
+                    >
+                      <div className="skill-icon-container">
+                        <img 
+                          src={skill.icon} 
+                          alt={skill.name} 
+                          className="skill-icon-img"
+                        />
+                      </div>
+                      <span className="skill-name">{skill.name}</span>
                     </div>
-                    <span className="skill-name">{skill.name}</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}

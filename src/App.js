@@ -13,6 +13,7 @@ import WeatheredGameOfOz from './projects/WeatheredGameOfOz';
 import COVID19ProsocialBehaviour from './projects/COVID19ProsocialBehaviour';
 import NLPNetworkAnalysis from './projects/NLPNetworkAnalysis';
 import PhishingWebsiteClassification from './projects/PhishingWebsiteClassification';
+import Faire from './projects/Faire';
 import './App.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="/covid-prosocial-behaviour" element={<COVID19ProsocialBehaviour />} />
           <Route path="/nlp-network-analysis" element={<NLPNetworkAnalysis />} />
           <Route path="/phishing-website-classification" element={<PhishingWebsiteClassification />} />
+          <Route path="/faire" element={<Faire />} />
         </Routes>
       </div>
     </Router>

@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
-import { FiGithub, FiLinkedin, FiMail, FiFileText, FiMapPin, FiPhone } from 'react-icons/fi';
+import React, { useState, useRef, useEffect } from 'react';
+import { FiGithub, FiLinkedin, FiMail, FiFileText, FiPhone } from 'react-icons/fi';
 import './Contact.css';
 
 function Contact() {
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const contactInfoRef = useRef(null);
+  const formRef = useRef(null);
+  
+  const [isTitleVisible, setIsTitleVisible] = useState(false);
+  const [isSubtitleVisible, setIsSubtitleVisible] = useState(false);
+  const [isContactInfoVisible, setIsContactInfoVisible] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +22,61 @@ function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+
+  // Animation setup
+  useEffect(() => {
+    const titleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTitleVisible(true);
+          titleObserver.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const subtitleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSubtitleVisible(true);
+          subtitleObserver.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const contactInfoObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsContactInfoVisible(true);
+          contactInfoObserver.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const formObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFormVisible(true);
+          formObserver.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (titleRef.current) titleObserver.observe(titleRef.current);
+    if (subtitleRef.current) subtitleObserver.observe(subtitleRef.current);
+    if (contactInfoRef.current) contactInfoObserver.observe(contactInfoRef.current);
+    if (formRef.current) formObserver.observe(formRef.current);
+
+    return () => {
+      if (titleRef.current) titleObserver.unobserve(titleRef.current);
+      if (subtitleRef.current) subtitleObserver.unobserve(subtitleRef.current);
+      if (contactInfoRef.current) contactInfoObserver.unobserve(contactInfoRef.current);
+      if (formRef.current) formObserver.unobserve(formRef.current);
+    };
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -44,13 +109,26 @@ function Contact() {
       <div className="contact-container">
         {/* Section Header */}
         <div className="contact-header">
-          <h2 className="contact-title">Contact</h2>
-          <p className="contact-subtitle">Let's work together or just say hello!</p>
+          <h2 
+            ref={titleRef}
+            className={`contact-title ${isTitleVisible ? 'animate' : ''}`}
+          >
+            Contact
+          </h2>
+          <p 
+            ref={subtitleRef}
+            className={`contact-subtitle ${isSubtitleVisible ? 'animate' : ''}`}
+          >
+            Let's work together or just say hello!
+          </p>
         </div>
 
         <div className="contact-content">
           {/* Contact Information */}
-          <div className="contact-info">
+          <div 
+            ref={contactInfoRef}
+            className={`contact-info ${isContactInfoVisible ? 'slide-in-left' : ''}`}
+          >
             <h3 className="info-title">Contact Information</h3>
             <div className="info-items">
               <div className="info-item">
@@ -62,18 +140,10 @@ function Contact() {
               </div>
               
               <div className="info-item">
-                <FiMapPin className="info-icon" />
-                <div className="info-details">
-                  <h4>Location</h4>
-                  <p>Melbourne, Australia</p>
-                </div>
-              </div>
-              
-              <div className="info-item">
                 <FiPhone className="info-icon" />
                 <div className="info-details">
                   <h4>Phone</h4>
-                  <p>+61 4XX XXX XXX</p>
+                  <p>+6012 271 8328</p>
                 </div>
               </div>
             </div>
@@ -99,7 +169,10 @@ function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="contact-form-container">
+          <div 
+            ref={formRef}
+            className={`contact-form-container ${isFormVisible ? 'slide-in-right' : ''}`}
+          >
             <h3 className="form-title">Send me a message</h3>
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">

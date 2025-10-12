@@ -1,0 +1,225 @@
+.faire-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FECCE6 0%, #EE89B5 100%);
+  padding: 2rem 0;
+  font-family: 'Tilt Neon', sans-serif;
+}
+
+.faire-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+}
+
+.faire-back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #494949;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.faire-back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.faire-title {
+  font-family: 'Tilt Warp', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #FFF4F2;
+  margin-bottom: 1rem;
+  -webkit-text-stroke: 0.1px #494949;
+  letter-spacing: -2px;
+}
+
+.faire-subtitle {
+  font-family: 'Tilt Neon', sans-serif;
+  font-size: 1.3rem;
+  color: #494949;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.faire-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.faire-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.faire-project-overview,
+.faire-hackathon-context,
+.faire-technical-approach,
+.faire-key-features,
+.faire-impact-learning,
+.faire-future-development,
+.faire-team-collaboration {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(238, 137, 181, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.faire-project-overview:hover,
+.faire-hackathon-context:hover,
+.faire-technical-approach:hover,
+.faire-key-features:hover,
+.faire-impact-learning:hover,
+.faire-future-development:hover,
+.faire-team-collaboration:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(238, 137, 181, 0.3);
+  border-color: rgba(238, 137, 181, 0.4);
+}
+
+.faire-project-overview h3,
+.faire-hackathon-context h3,
+.faire-technical-approach h3,
+.faire-key-features h3,
+.faire-impact-learning h3,
+.faire-future-development h3,
+.faire-team-collaboration h3 {
+  font-family: 'Tilt Warp', sans-serif;
+  color: #EE89B5;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #EE89B5;
+  padding-bottom: 0.5rem;
+}
+
+.faire-project-overview p,
+.faire-hackathon-context p,
+.faire-technical-approach p,
+.faire-impact-learning p,
+.faire-future-development p,
+.faire-team-collaboration p {
+  font-family: 'Tilt Neon', sans-serif;
+  color: #494949;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.faire-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faire-features-list li {
+  font-family: 'Tilt Neon', sans-serif;
+  color: #494949;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+  padding-left: 2rem;
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.faire-features-list li::before {
+  content: '✨';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #EE89B5;
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faire-page {
+    padding: 1rem 0;
+  }
+  
+  .faire-header {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .faire-content {
+    padding: 0 1rem;
+  }
+  
+  .faire-container {
+    gap: 2rem;
+  }
+  
+  .faire-project-overview,
+  .faire-hackathon-context,
+  .faire-technical-approach,
+  .faire-key-features,
+  .faire-impact-learning,
+  .faire-future-development,
+  .faire-team-collaboration {
+    padding: 1.5rem;
+  }
+  
+  .faire-project-overview h3,
+  .faire-hackathon-context h3,
+  .faire-technical-approach h3,
+  .faire-key-features h3,
+  .faire-impact-learning h3,
+  .faire-future-development h3,
+  .faire-team-collaboration h3 {
+    font-size: 1.5rem;
+  }
+  
+  .faire-project-overview p,
+  .faire-hackathon-context p,
+  .faire-technical-approach p,
+  .faire-impact-learning p,
+  .faire-future-development p,
+  .faire-team-collaboration p {
+    font-size: 1rem;
+  }
+  
+  .faire-features-list li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faire-back-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .faire-project-overview,
+  .faire-hackathon-context,
+  .faire-technical-approach,
+  .faire-key-features,
+  .faire-impact-learning,
+  .faire-future-development,
+  .faire-team-collaboration {
+    padding: 1.2rem;
+  }
+  
+  .faire-project-overview h3,
+  .faire-hackathon-context h3,
+  .faire-technical-approach h3,
+  .faire-key-features h3,
+  .faire-impact-learning h3,
+  .faire-future-development h3,
+  .faire-team-collaboration h3 {
+    font-size: 1.3rem;
+  }
+}
+
