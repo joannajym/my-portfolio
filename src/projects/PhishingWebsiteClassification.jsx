@@ -9,7 +9,9 @@ const PhishingWebsiteClassification = () => {
     <div className="phishing-classification-page">
       <div className="phishing-classification-header">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/', { state: { scrollTo: 'projects' } });
+          }}
           className="phishing-classification-back-button"
         >
           ← Back to Portfolio

@@ -9,7 +9,9 @@ const WeatheredGameOfOz = () => {
     <div className="weathered-game-page">
       <div className="weathered-game-header">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/', { state: { scrollTo: 'projects' } });
+          }}
           className="weathered-back-button"
         >
           ← Back to Portfolio

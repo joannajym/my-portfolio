@@ -1,6 +1,6 @@
 .schrodingers-hunt-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #FECCE6 100%);
+  background: radial-gradient(circle at center, #f8f5f6 0%, #71a0bb 100%);
   padding: 0;
   margin: 0;
 }

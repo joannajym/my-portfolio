@@ -9,7 +9,9 @@ const NLPNetworkAnalysis = () => {
     <div className="nlp-network-page">
       <div className="nlp-network-header">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/', { state: { scrollTo: 'projects' } });
+          }}
           className="nlp-network-back-button"
         >
           ← Back to Portfolio

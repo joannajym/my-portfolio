@@ -9,6 +9,7 @@ const HPCSelect = () => {
   const [memo, setMemo] = useState([]);
   const [n, setN] = useState(8);
   const [m, setM] = useState(5);
+  const [activeTab, setActiveTab] = useState('tech');
 
   // Default occupancy probability from the example
   const defaultOccupancy = [
@@ -127,198 +128,246 @@ const HPCSelect = () => {
 
   return (
     <div className="hpc-select-page">
-      <header className="hpc-select-header">
-        <button 
-          onClick={() => navigate('/')}
-          className="hpc-back-button"
-        >
-          ← Back to Portfolio
-        </button>
-        <h1 className="hpc-select-title">HPC Select</h1>
-        <p className="hpc-select-subtitle">A dynamic programming-based optimisation for post-pandemic HPC facility placement with social distancing constraints</p>
-      </header>
-      
       <main className="hpc-select-content">
-        <div className="hpc-container">
-          {/* HPC Facility Placement Visualiser - Moved to top */}
-          <div className="hpc-visualiser-section">
-            <h3>HPC Facility Placement Visualiser</h3>
+        <div className="hpc-navigation">
+          <button 
+            onClick={() => {
+              navigate('/', { state: { scrollTo: 'projects' } });
+            }}
+            className="hpc-back-button"
+          >
+            ← Back to Portfolio
+          </button>
+          <div className="hpc-breadcrumb">
+            <span className="hpc-breadcrumb-item" onClick={() => navigate('/', { state: { scrollTo: 'projects' } })}>Projects</span>
+            <span className="hpc-breadcrumb-separator">{'>'}</span>
+            <span className="hpc-breadcrumb-current">HPC Select</span>
+          </div>
+        </div>
+        
+        <h1 className="hpc-select-title">HPC Select</h1>
+        
+        {/* Main Layout - Two Column */}
+        <div className="hpc-main-layout">
+          {/* Project Overview Section - Left Column */}
+          <div className="hpc-project-overview">
+            <p>
+              In response to shifting office dynamics in the post-Covid era, this project focuses on identifying the 
+              optimal location within a corporate building to install a new High-Performance Computing (HPC) facility. 
+              With many office spaces now underutilised, the goal is to maximise space efficiency while minimising 
+              disruption to existing employees.
+            </p>
             
-            <div className="hpc-visualiser-content">
-              <div className="hpc-grid-container">
-                <h4>Office Layout</h4>
-                <p>Each cell represents a section with its occupancy probability</p>
-                <div className="hpc-grid" style={{ gridTemplateColumns: `repeat(${m}, 1fr)` }}>
-                  {occupancyProbability.map((row, i) => 
-                    row.map((cell, j) => (
-                      <div
-                        key={`${i}-${j}`}
-                        className={`hpc-cell ${selectedSections.some(sec => sec[0] === i && sec[1] === j) ? 'hpc-selected' : ''}`}
-                        onClick={() => handleCellClick(i, j)}
-                        style={{
-                          backgroundColor: memo.length > 0 && memo[i] && memo[i][j] !== undefined
-                            ? `rgb(${Math.floor(memo[i][j] / Math.max(...memo.flat()) * 255)}, 255, ${Math.floor(memo[i][j] / Math.max(...memo.flat()) * 255)})`
-                            : `rgb(255, ${255 - Math.floor(cell * 2.55)}, ${255 - Math.floor(cell * 2.55)})`,
-                          color: memo.length > 0 && memo[i] && memo[i][j] !== undefined
-                            ? 'black'
-                            : (cell > 50 ? 'white' : 'black')
-                        }}
-                      >
-                        {cell}
-                      </div>
-                    ))
-                  )}
-                </div>
-                
-                <div className="hpc-results">
-                  <h4>Results</h4>
-                  <p>Total Occupancy: <span className="hpc-result-value">{totalOccupancy || '-'}</span></p>
-                  <p>Selected Sections: <span className="hpc-result-value">{selectedSections.length > 0 ? selectedSections.map(sec => `(${sec[0]}, ${sec[1]})`).join(', ') : '-'}</span></p>
-                </div>
+            <div className="hpc-technologies">
+              <h4>Technologies Used</h4>
+              <div className="hpc-tech-tags">
+                <span className="hpc-tech-tag">Python</span>
+                <span className="hpc-tech-tag">JavaScript</span>
+                <span className="hpc-tech-tag">React</span>
+              </div>
+            </div>
+            
+            {/* Tabbed Container */}
+            <div className="hpc-tab-container">
+              <div className="hpc-tab-headers">
+                <button 
+                  className={`hpc-tab-header ${activeTab === 'tech' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('tech')}
+                >
+                  Technical Description
+                </button>
+                <button 
+                  className={`hpc-tab-header ${activeTab === 'solution' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('solution')}
+                >
+                  Solution Approach
+                </button>
               </div>
               
-              <div className="hpc-controls">
-                <h4>Controls</h4>
+              <div className="hpc-tab-content">
+                {activeTab === 'tech' && (
+                  <div className="hpc-tab-panel">
+                    <div className="hpc-detail-item">
+                      <h5>Time Complexity</h5>
+                      <p>O(n × m) where n is the number of rows and m is the number of columns</p>
+                    </div>
+                    
+                    <div className="hpc-detail-item">
+                      <h5>Space Complexity</h5>
+                      <p>O(n × m) for storing DP table and backtracking information</p>
+                    </div>
+                    
+                    <div className="hpc-detail-item">
+                      <h5>Input</h5>
+                      <p><strong>occupancy_probability:</strong> A list of lists with columns of length 'm' and rows of length 'n'.</p>
+                      <p>occupancy_probability[i][j] is an integer number between 0 and 100 which represents the occupancy 
+                        probability for a section located at rows 'i' and column 'j'.</p>
+                    </div>
+                    
+                    <div className="hpc-detail-item">
+                      <h5>Output</h5>
+                      <p>Optimal section locations and minimum total occupancy score</p>
+                    </div>
+                  </div>
+                )}
                 
-                <div className="hpc-button-group">
-                  <button onClick={selectSections} className="hpc-btn hpc-btn-primary">
-                    Run Algorithm
-                  </button>
-                  <button onClick={resetGrid} className="hpc-btn">
-                    Reset Grid
-                  </button>
-                  <button onClick={generateRandomGrid} className="hpc-btn hpc-btn-success">
-                    Generate Random Grid
-                  </button>
-                </div>
-                
-                <div className="hpc-slider-container">
-                  <label htmlFor="rows">Number of Rows: <span>{n}</span></label>
-                  <input 
-                    type="range" 
-                    id="rows" 
-                    min="4" 
-                    max="15" 
-                    value={n}
-                    onChange={(e) => {
-                      const newN = parseInt(e.target.value);
-                      setN(newN);
-                      const newGrid = [];
-                      for (let i = 0; i < newN; i++) {
-                        const row = [];
-                        for (let j = 0; j < m; j++) {
-                          row.push(Math.floor(Math.random() * 101));
-                        }
-                        newGrid.push(row);
-                      }
-                      setOccupancyProbability(newGrid);
-                      setSelectedSections([]);
-                      setTotalOccupancy(0);
-                      setMemo([]);
-                    }}
-                  />
-                </div>
-                
-                <div className="hpc-slider-container">
-                  <label htmlFor="cols">Number of Columns: <span>{m}</span></label>
-                  <input 
-                    type="range" 
-                    id="cols" 
-                    min="3" 
-                    max="10" 
-                    value={m}
-                    onChange={(e) => {
-                      const newM = parseInt(e.target.value);
-                      setM(newM);
-                      const newGrid = [];
-                      for (let i = 0; i < n; i++) {
-                        const row = [];
-                        for (let j = 0; j < newM; j++) {
-                          row.push(Math.floor(Math.random() * 101));
-                        }
-                        newGrid.push(row);
-                      }
-                      setOccupancyProbability(newGrid);
-                      setSelectedSections([]);
-                      setTotalOccupancy(0);
-                      setMemo([]);
-                    }}
-                  />
-                </div>
-                
-                <div className="hpc-explanation">
-                  <h4>How It Works</h4>
-                  <p>
-                    Each cell represents a section with its occupancy probability. The algorithm finds the optimal path 
-                    by selecting one section from each row while minimizing total occupancy and maintaining adjacency constraints.
-                  </p>
-                  <p>
-                    The recurrence relation is: <code>memo[i][j] = occupancy[i][j] + min(memo[i-1][j-1], memo[i-1][j], memo[i-1][j+1])</code>
-                  </p>
-                </div>
-                
-
+                {activeTab === 'solution' && (
+                  <div className="hpc-tab-panel">
+                    <p>
+                      First, we create a 2D array called memo, with dimensions n x m, to store the minimum total occupancy
+                      for removing i sections from the top j columns of the first i rows. We extracted the n and m values 
+                      from the occupancy_probability matrix.
+                    </p>
+                    <p>
+                      Next, the first row of the memo matrix is filled with the corresponding values from the occupancy_probability 
+                      matrix. This serves as a base case for the dynamic programming approach.
+                    </p>
+                    <p>
+                      For each subsequent row of the occupancy_probability matrix, the function iterates over each section 
+                      in the row and considers three possible options for selecting a section to remove: the section directly 
+                      above, the section diagonally above and to the left, and the section diagonally above and to the right.
+                    </p>
+                    <p>
+                      The function calculates the minimum total occupancy for each option, then it adds the occupancy probability 
+                      of the current section to the minimum, and stores those values in the corresponding cell of the memo matrix. 
+                      Additionally, the function also keeps track of which option was chosen for each cell, by appending the index 
+                      of the chosen section to the select_sections list.
+                    </p>
+                    <p>
+                      Once all the cells in the memo matrix have been filled, the function finds the minimum value in the last row 
+                      of the memo matrix, which represents the minimum total occupancy rate for a set of n sections. The corresponding 
+                      set of sections is then extracted from the select_sections list and returned, along with the minimum total 
+                      occupancy rate as a tuple.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
 
-          <div className="hpc-project-overview">
-            <h3>Project Overview</h3>
-            <p>
-              In response to shifting office dynamics in the post-Covid era, this project focuses on identifying the 
-              optimal location within a corporate building to install a new High-Performance Computing (HPC) facility. 
-              With many office spaces now underutilised, the goal is to maximize space efficiency while minimising 
-              disruption to existing employees.
-            </p>
-          </div>
-          
-          <div className="hpc-solution-approach">
-            <h3>Solution Approach</h3>
-            <p>
-              First, we create a 2D array called memo, with dimensions n x m, to store the minimum total occupancy
-              for removing i sections from the top j columns of the first i rows. We extracted the n and m values 
-              from the occupancy_probability matrix.
-            </p>
-            <p>
-              Next, the first row of the memo matrix is filled with the corresponding values from the occupancy_probability 
-              matrix. This serves as a base case for the dynamic programming approach.
-            </p>
-            <p>
-              For each subsequent row of the occupancy_probability matrix, the function iterates over each section 
-              in the row and considers three possible options for selecting a section to remove: the section directly 
-              above, the section diagonally above and to the left, and the section diagonally above and to the right.
-            </p>
-            <p>
-              The function calculates the minimum total occupancy for each option, then it adds the occupancy probability 
-              of the current section to the minimum, and stores those values in the corresponding cell of the memo matrix. 
-              Additionally, the function also keeps track of which option was chosen for each cell, by appending the index 
-              of the chosen section to the select_sections list.
-            </p>
-            <p>
-              Once all the cells in the memo matrix have been filled, the function finds the minimum value in the last row 
-              of the memo matrix, which represents the minimum total occupancy rate for a set of n sections. The corresponding 
-              set of sections is then extracted from the select_sections list and returned, along with the minimum total 
-              occupancy rate as a tuple.
-            </p>
-          </div>
-          
-          <div className="hpc-technical-details">
-            <h3>Technical Details</h3>
-            <h4>Time Complexity</h4>
-            <p>O(n × m) where n is the number of rows and m is the number of columns</p>
+          {/* HPC Facility Placement Visualiser - Right Column */}
+          <div className="hpc-visualiser-section">
+            <h3>Facility Placement Visualisation</h3>
             
-            <h4>Space Complexity</h4>
-            <p>O(n × m) for storing DP table and backtracking information</p>
-            
-            <h4>Input</h4>
-            <p><strong>occupancy_probability:</strong> A list of lists with columns of length 'm' and rows of length 'n'.</p>
-            <p>occupancy_probability[i][j] is an integer number between 0 and 100  which represents the occupancy 
-              probability for a section located at rows 'i' and column 'j'.</p>
-            
-            <h4>Output</h4>
-            <p>Optimal section locations and minimum total occupancy score</p>
+            {/* Controls Section - Below Title */}
+            <div className="hpc-controls">
+              <h4>Controls</h4>
+              
+              <div className="hpc-slider-container">
+                <label htmlFor="rows">Number of Rows: <span>{n}</span></label>
+                <input 
+                  type="range" 
+                  id="rows" 
+                  min="4" 
+                  max="15" 
+                  value={n}
+                  onChange={(e) => {
+                    const newN = parseInt(e.target.value);
+                    setN(newN);
+                    const newGrid = [];
+                    for (let i = 0; i < newN; i++) {
+                      const row = [];
+                      for (let j = 0; j < m; j++) {
+                        row.push(Math.floor(Math.random() * 101));
+                      }
+                      newGrid.push(row);
+                    }
+                    setOccupancyProbability(newGrid);
+                    setSelectedSections([]);
+                    setTotalOccupancy(0);
+                    setMemo([]);
+                  }}
+                />
+              </div>
+              
+              <div className="hpc-slider-container">
+                <label htmlFor="cols">Number of Columns: <span>{m}</span></label>
+                <input 
+                  type="range" 
+                  id="cols" 
+                  min="3" 
+                  max="10" 
+                  value={m}
+                  onChange={(e) => {
+                    const newM = parseInt(e.target.value);
+                    setM(newM);
+                    const newGrid = [];
+                    for (let i = 0; i < n; i++) {
+                      const row = [];
+                      for (let j = 0; j < newM; j++) {
+                        row.push(Math.floor(Math.random() * 101));
+                      }
+                      newGrid.push(row);
+                    }
+                    setOccupancyProbability(newGrid);
+                    setSelectedSections([]);
+                    setTotalOccupancy(0);
+                    setMemo([]);
+                  }}
+                />
+              </div>
+              
+              <div className="hpc-button-group">
+                <button onClick={selectSections} className="hpc-btn hpc-btn-primary">
+                  Run Algorithm
+                </button>
+                <button onClick={resetGrid} className="hpc-btn">
+                  Reset Grid
+                </button>
+                <button onClick={generateRandomGrid} className="hpc-btn hpc-btn-success">
+                  Generate Random Grid
+                </button>
+              </div>
+              
+            </div>
+
+            {/* Office Layout Section - Below Controls */}
+            <div className="hpc-grid-container">
+              <h4>Office Layout</h4>
+              <p>Each cell represents a section with its occupancy probability</p>
+              <div className="hpc-grid" style={{ gridTemplateColumns: `repeat(${m}, 1fr)` }}>
+                {occupancyProbability.map((row, i) => 
+                  row.map((cell, j) => (
+                    <div
+                      key={`${i}-${j}`}
+                      className={`hpc-cell ${selectedSections.some(sec => sec[0] === i && sec[1] === j) ? 'hpc-selected' : ''}`}
+                      onClick={() => handleCellClick(i, j)}
+                      style={{
+                        backgroundColor: memo.length > 0 && memo[i] && memo[i][j] !== undefined
+                          ? `rgb(${Math.floor(memo[i][j] / Math.max(...memo.flat()) * 255)}, 255, ${Math.floor(memo[i][j] / Math.max(...memo.flat()) * 255)})`
+                          : `rgb(255, ${255 - Math.floor(cell * 2.55)}, ${255 - Math.floor(cell * 2.55)})`,
+                        color: memo.length > 0 && memo[i] && memo[i][j] !== undefined
+                          ? 'black'
+                          : (cell > 50 ? 'white' : 'black')
+                      }}
+                    >
+                      {cell}
+                    </div>
+                  ))
+                )}
+              </div>
+              
+              <div className="hpc-results">
+                <h3>Results</h3>
+                <p>Total Occupancy: <span className="hpc-result-value">{totalOccupancy || '-'}</span></p>
+                <p>Selected Sections: <span className="hpc-result-value">{selectedSections.length > 0 ? selectedSections.map(sec => `(${sec[0]}, ${sec[1]})`).join(', ') : '-'}</span></p>
+              </div>
+              
+              <div className="hpc-explanation">
+                <h4>How It Works</h4>
+                <p>
+                  Each cell represents a section with its occupancy probability. The algorithm finds the optimal path 
+                  by selecting one section from each row while minimising total occupancy and maintaining adjacency constraints.
+                </p>
+                <p>
+                  The recurrence relation is: <code>memo[i][j] = occupancy[i][j] + min(memo[i-1][j-1], memo[i-1][j], memo[i-1][j+1])</code>
+                </p>
+              </div>
+            </div>
           </div>
-          
+        </div>
+
+        <div className="hpc-container">
           {/* Algorithm Implementation Section */}
           <div className="hpc-code-section">
             <h3>Algorithm Implementation</h3>

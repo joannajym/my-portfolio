@@ -1,6 +1,6 @@
 .faire-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #FECCE6 0%, #EE89B5 100%);
+  background: radial-gradient(circle at center, #f8f5f6 0%, #71a0bb 100%);
   padding: 2rem 0;
   font-family: 'Tilt Neon', sans-serif;
 }

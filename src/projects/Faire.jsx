@@ -14,7 +14,9 @@ const Faire = () => {
     <div className="faire-page">
       <header className="faire-header">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/', { state: { scrollTo: 'projects' } });
+          }}
           className="faire-back-button"
         >
           ← Back to Portfolio

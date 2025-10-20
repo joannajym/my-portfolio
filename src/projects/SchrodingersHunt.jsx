@@ -10,7 +10,9 @@ const SchrodingersHunt = () => {
     <div className="schrodingers-hunt-page">
       <div className="schrodingers-hunt-header">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/', { state: { scrollTo: 'projects' } });
+          }}
           className="schrodingers-back-button"
         >
           ← Back to Portfolio

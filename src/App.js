@@ -1,5 +1,5 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -16,21 +16,36 @@ import PhishingWebsiteClassification from './projects/PhishingWebsiteClassificat
 import Faire from './projects/Faire';
 import './App.css';
 
+function MainLayout() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
+  return (
+    <>
+      <Navbar />
+      <Home />
+      <About />
+      <Projects />
+      <Skills />
+      <Contact />
+    </>
+  );
+}
+
 function App() {
   return (
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" element={
-            <>
-              <Navbar />
-              <Home />
-              <About />
-              <Projects />
-              <Skills />
-              <Contact />
-            </>
-          } />
+          <Route path="/" element={<MainLayout />} />
           <Route path="/diner-finder" element={<DinerFinder />} />
           <Route path="/hpc-select" element={<HPCSelect />} />
           <Route path="/schrodingers-hunt" element={<SchrodingersHunt />} />

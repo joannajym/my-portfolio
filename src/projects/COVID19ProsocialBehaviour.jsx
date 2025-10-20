@@ -9,7 +9,9 @@ const COVID19ProsocialBehaviour = () => {
     <div className="covid-prosocial-page">
       <div className="covid-prosocial-header">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/', { state: { scrollTo: 'projects' } });
+          }}
           className="covid-prosocial-back-button"
         >
           ← Back to Portfolio
