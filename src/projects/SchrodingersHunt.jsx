@@ -55,6 +55,9 @@ const SchrodingersHunt = () => {
               <div className="schrodingers-tech-tags">
                 <span className="schrodingers-tech-tag">Python</span>
                 <span className="schrodingers-tech-tag">Jupyter</span>
+                <span className="schrodingers-tech-tag">NumPy</span>
+                <span className="schrodingers-tech-tag">Matplotlib</span>
+                <span className="schrodingers-tech-tag">SciPy</span>
               </div>
             </div>
           </div>
@@ -104,7 +107,7 @@ const SchrodingersHunt = () => {
                       <li><strong>Q(t)</strong>: time-varying quantum behavioral factor (e.g., oscillatory or probabilistic)</li>
                     </ul>
                     <p>
-                      This formulation would allow predator efficiency to fluctuate non-deterministically, introducing uncertainty introduces
+                      This formulation would allow predator efficiency to fluctuate non-deterministically, meaning, introducing uncertainty introduces
                       ecosystem stability.
                     </p>
                   </div>
@@ -114,7 +117,7 @@ const SchrodingersHunt = () => {
                   <div className="schrodingers-tab-panel">
                     <ul className="assumptions-list">
                       <li>Predator and prey are uniformly distributed in their environment.</li>
-                      <li>Quantum principles can directly influence predator decision-making or huntin ability.</li>
+                      <li>Quantum principles can directly influence predator decision-making or hunting ability.</li>
                       <li>Environmental conditions remain constant.</li>
                       <li>Populations are internally homogeneous (no genetic/behavioural differences)</li>
                     </ul>
@@ -127,32 +130,39 @@ const SchrodingersHunt = () => {
                       <div className="findings-subsection">
                         <h4>1. Quantum fluctuations destabalise dynamics</h4>
                         <ul>
-                          <li>At low frequencies of Q(t), population cycles remain smooth and resemble classical oscillations</li>
-                          <li>At higher frequencies, predator-prey interactions become chaotic, with sharper oscillations and instability</li>
+                          <li>At low frequencies of Q(t), population cycles remain smooth and resemble classical oscillations.</li>
+                          <li>At higher frequencies, predator-prey interactions become chaotic, with sharper oscillations and instability.</li>
+                          <li>This reveals that quantum-like randomness can destabalise an otherwise balanced ecosystem.</li>
                         </ul>
                       </div>
                       
                       <div className="findings-subsection">
                         <h4>2. Initial conditions matter</h4>
                         <ul>
-                          <li>High prey populations buffer against extinction risk</li>
-                          <li>Scenarios with many predators and few prey quickly collapse due to overconsumption, regardless of quantum efficiency</li>
+                          <li>The model is highly sensitive to starting population ratios.</li>
+                          <li>Ecosystems with many prey and moderate predator numbers remain stable over time.</li>
+                          <li>Systems that start with too many predators quickly collapse due to overconsumption.</li>
+                          <li>This demonstrates how initial balance strongly influences long-term ecosystem survival.</li>
                         </ul>
                       </div>
                       
                       <div className="findings-subsection">
                         <h4>3. Ecosystem resilience varies</h4>
                         <ul>
-                          <li>Balanced starting populations allow quantum variability without destabilising the system</li>
-                          <li>Imbalanced conditions amplify extinction risks</li>
+                          <li>Quantum variability alone doesn't destroy stability. What matters is population balance.</li>
+                          <li>Balanced predator-prey ratios can absorb fluctuations and maintain cycles.</li>
+                          <li>When one group dominates, even small distrubances can cause extinction events.</li>
+                          <li>This shows that resilience depends more on population balance than on quantum influence itself.</li>
                         </ul>
                       </div>
                       
                       <div className="findings-subsection">
                         <h4>4. Steady-state analysis</h4>
                         <ul>
-                          <li>Quantum influence shifts classical nullclines and equilibrium points</li>
-                          <li>Ecosystems under quantum-driven predator behaviour may not converge to fixed points but instead exhibit persistent oscillations or limit cycles</li>
+                          <li>In classical models, populations tend to settle at fixed equilibirum points.</li>
+                          <li>When quantum effects are added through <strong><i>Q(t)</i></strong>, these equilibrium points shift continuously.</li>
+                          <li>Instead of settling, the system keeps oscillating, forming moving or limit cycles rather than fixed points.</li>
+                          <li>This reflects how quantum behaviour prevents true stability in predator-prey dynamics.</li>
                         </ul>
                       </div>
                     </div>

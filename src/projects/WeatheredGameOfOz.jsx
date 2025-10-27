@@ -52,6 +52,8 @@ const WeatheredGameOfOz = () => {
               <div className="weathered-tech-tags">
                 <span className="weathered-tech-tag">Python</span>
                 <span className="weathered-tech-tag">Jupyter</span>
+                <span className="weathered-tech-tag">NumPy</span>
+                <span className="weathered-tech-tag">Matplotlib</span>
               </div>
             </div>
           </div>
@@ -172,24 +174,27 @@ const WeatheredGameOfOz = () => {
                     <div className="findings-subsection">
                       <h4>1. Weather Simulation</h4>
                       <ul>
-                        <li>The Gillespie simulation visually demonstrated that urbanisation leads to prolonged sunny periods</li>
-                        <li>Deforestation increases the frequency and unpredictability of rainy weather</li>
+                        <li>The Gillespie simulation demonstrated that <strong>increased urbanisation raises the probability of Sunny weather states</strong> by amplifying local heat retention and reducing albedo effects.</li>
+                        <li>Conversely, <strong>deforestation increased both the frequency and volatility of Rainy weather</strong> due to disrupted hydrological cycles and reduced canopy cover.</li>
+                        <li>These findings highlight how human-driven environmental changes can alter natural weather transitions within the Markov framework of the Land of Oz model.</li>
                       </ul>
                     </div>
                     
                     <div className="findings-subsection">
                       <h4>2. Socio-Economic Analysis</h4>
                       <ul>
-                        <li>Monte Carlo results revealed that Agricultural Output and Trade Volume remained relatively stable under varying weather</li>
-                        <li>Population Size showed high variability, indicating that migration is a primary response to environmental stress</li>
+                        <li>The Monte Carlo simulations revealed that <strong>agricultural output and trade volume remained stable</strong> across varying weather conditions, suggesting adaptive economic resilience.</li>
+                        <li>However, <strong>population size displayed significant variability</strong>, indicating that migration serves as the dominant socio-economic response to environmental stressors.</li>
+                        <li>These results imply that while economic systems can stabilise under changing climates, demographic shifts are more reactive and volatile.</li>
                       </ul>
                     </div>
                     
                     <div className="findings-subsection">
                       <h4>3. Strategic Analysis</h4>
                       <ul>
-                        <li>Game theory analysis found that the Nash Equilibrium strategy for all regions was to "Manage Migration"</li>
-                        <li>This aligns with the Monte Carlo results, highlighting migration management as the most critical and universally beneficial policy for maintaining socio-economic stability in the face of changing weather patterns</li>
+                        <li>Game theory analysis identified <strong>"Manage Migration"</strong> as the Nash Equilibrium strategy for all regions.</li>
+                        <li>This strategy yielded the highest collective payoff by stabilising population fluctuations and mitigating socio-economic risks caused by weather variability.</li>
+                        <li>The result underscores the systemic importance of migration management as a universal and optimal policy in dynamic environmental conditions.</li>
                       </ul>
                     </div>
                   </div>

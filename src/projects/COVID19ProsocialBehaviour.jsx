@@ -56,7 +56,7 @@ const COVID19ProsocialBehaviour = () => {
               <div className="covid-tech-tags">
                 <span className="covid-tech-tag">R</span>
                 <span className="covid-tech-tag">Statistical Modelling</span>
-                <span className="covid-tech-tag">Data Visualization</span>
+                <span className="covid-tech-tag">Data Visualisation</span>
               </div>
             </div>
           </div>

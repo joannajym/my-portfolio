@@ -8,49 +8,49 @@ const projects = [
   {
     title: "Diner Finder",
     description: "A dynamic programming-based optimisation for fast food site placement.",
-    tags: ["Python"],
+    tags: ["Python", "JavaScript", "ReactJS"],
     year: "2023",
     id: "diner-finder"
   },
   {
     title: "HPC Select",
     description: "A dynamic programming-based optimisation for post-pandemic HPC facility placement.",
-    tags: ["Python"],
+    tags: ["Python", "JavaScript", "ReactJS"],
     year: "2023",
     id: "hpc-select"
   },
   {
     title: "Schrödinger's Hunt",
     description: "A simulation exploring how quantum-inspired predator behaviour alters predator-prey ecosystem dynamics.",
-    tags: ["Python", "Jupyter"],
+    tags: ["Python", "Jupyter", "NumPy", "Matplotlib", "SciPy"],
     year: "2024",
     id: "schrodingers-hunt"
   },
   {
     title: "The Weathered Game of Oz",
     description: "A strategic board game simulation exploring resource management and environmental adaptation in a dynamic ecosystem.",
-    tags: ["Python", "Jupyter"],
+    tags: ["Python", "Jupyter", "NumPy", "Matplotlib"],
     year: "2024",
     id: "weathered-game-of-oz"
   },
   {
     title: "COVID-19 Prosocial Behaviour Analysis",
     description: "A data analysis project in R examining behavioural trends related to COVID-19 using statistical and visual methods.",
-    tags: ["R"],
+    tags: ["R", "Statistical Modelling", "Data Visualisation"],
     year: "2024",
     id: "covid-prosocial-behaviour"
   },
   {
     title: "Phishing Website Classification",
     description: "A machine learning-based R project to classify phishing websites using multiple surpervised learning models and evaluate their performance.",
-    tags: ["R"],
+    tags: ["R", "Machine Learning", "Decision Trees", "Random Forest", "SVM", "Naive Bayes"],
     year: "2024",
     id: "phishing-website-classification"
   },
   {
     title: "NLP and Network Analysis",
     description: "An NLP and network analysis project using R to cluster blog articles and visualise term-document relationships through graphs and corpus modeling.",
-    tags: ["R"],
+    tags: ["R", "NLP", "Network Analysis", "Text Mining", "Hierarchical Clustering", "Document-Term Matrix"],
     year: "2024",
     id: "nlp-network-analysis"
   },
