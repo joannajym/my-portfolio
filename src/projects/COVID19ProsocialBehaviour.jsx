@@ -91,8 +91,8 @@ const COVID19ProsocialBehaviour = () => {
                     <div className="methodology-subsection">
                       <h4>1. Data Preparation & Descriptive Analysis</h4>
                       <ul>
-                        <li>Worked with a 40,000-row dataset containing demographic, psychological, and behavioural attributes</li>
-                        <li>Performed data cleaning, transformation, and handling of missing values</li>
+                        <li>Worked with a 40,000-row dataset containing demographic, psychological, and behavioural attributes.</li>
+                        <li>Cleaned and transformed variables, handled missing values, and converted categorical data for statistical use.</li>
                         <li>Produced descriptive statistics and visualisations (boxplots, histograms) to highlight patterns in:
                           <ul>
                             <li>Social contact</li>
@@ -116,7 +116,7 @@ const COVID19ProsocialBehaviour = () => {
                             <li>Making personal sacrifices to prevent the spread of the virus</li>
                           </ul>
                         </li>
-                        <li>Compared predictive factors between Indonesia and the rest of the world</li>
+                        <li>Compared regression outcomes between <strong>Indonesia</strong> and <strong>global samples</strong> to understand cultural and contextual differences.</li>
                       </ul>
                     </div>
                     
@@ -126,10 +126,10 @@ const COVID19ProsocialBehaviour = () => {
                         <li>Analysed differences between:
                           <ul>
                             <li>Indonesia vs. other countries</li>
-                            <li>Indonesia vs. a cluster of similar countries (Malaysia, Singapore, Thailand, Vietnam, Philippines)</li>
+                            <li>Indonesia vs. neighbouring Southeast Asian nations (Malaysia, Singapore, Thailand, Vietnam, Philippines)</li>
                           </ul>
                         </li>
-                        <li>Used socioeconomic and health indicators for clustering with k-means:
+                        <li>Used <strong>k-means clustering</strong> based on socioeconomic indicators:
                           <ul>
                             <li>GDP per capita</li>
                             <li>Population density</li>
@@ -137,6 +137,7 @@ const COVID19ProsocialBehaviour = () => {
                             <li>Political stability</li>
                           </ul>
                         </li>
+                        <li>Identified regional clusters reflecting distinct cultural and economic contexts.</li>
                       </ul>
                     </div>
                   </div>
@@ -147,10 +148,10 @@ const COVID19ProsocialBehaviour = () => {
                     <div className="insights-subsection">
                       <h4>1. Indonesia-Specific Findings</h4>
                       <ul>
-                        <li><strong>Helping others (c19ProSo01):</strong> Driven by boredom, support for reporting suspected cases, and mandatory vaccination support, suggesting that both social restlessness and trust in collective health measures encouraged helping behaviours.</li>
-                        <li><strong>Donations (c19ProSo02):</strong> Influenced by happiness, avoidance of crowded spaces, and support for public health actions, pointing to a positive mindset and community-oriented attitudes as drivers of financial generosity.</li>
-                        <li><strong>Protecting vulnerable groups (c19ProSo03):</strong> Linked to in-person social contact, feelings of exclusion, and even conspiracy beliefs, indicating that both social responsibility and scepticism could motivate protective action.</li>
-                        <li><strong>Personal sacrifices (c19ProSo04):</strong> Strongly tied to feelings of being left out, handwashing and quarantine behaviours, and reporting cases, showing that both social disconnection and commitment to personal hygiene measures translated into willingness to sacrifice.</li>
+                        <li><strong>Helping others (c19ProSo01):</strong><p>Driven by boredom, support for reporting suspected cases, and mandatory vaccination support, suggesting that both social restlessness and trust in collective health measures encouraged helping behaviours.</p></li>
+                        <li><strong>Donations (c19ProSo02):</strong><p>Influenced by happiness, avoidance of crowded spaces, and support for public health actions, pointing to a positive mindset and community-oriented attitudes as drivers of financial generosity.</p></li>
+                        <li><strong>Protecting vulnerable groups (c19ProSo03):</strong><p>Linked to in-person social contact, feelings of exclusion, and even conspiracy beliefs, indicating that both social responsibility and scepticism could motivate protective action.</p></li>
+                        <li><strong>Personal sacrifices (c19ProSo04):</strong><p>Strongly tied to feelings of being left out, handwashing and quarantine behaviours, and reporting cases, showing that both social disconnection and commitment to personal hygiene measures translated into willingness to sacrifice.</p></li>
                       </ul>
                     </div>
                     
@@ -173,9 +174,9 @@ const COVID19ProsocialBehaviour = () => {
                       <ul>
                         <li>The cluster split into three groups:
                           <ul>
-                            <li><strong>Indonesia, Vietnam, Philippines (red cluster):</strong> Lower GDP and HDI, moderate political stability. Predictors here aligned with community bonds and cultural collectivism.</li>
-                            <li><strong>Malaysia, Thailand (blue cluster):</strong> Middle-ground socioeconomic indicators. Predictors reflected a blend of personal and digital engagement.</li>
-                            <li><strong>Singapore (green cluster):</strong> High GDP, HDI, and political stability. Behaviours were strongly influenced by structural capacity and institutional trust.</li>
+                            <li><strong>Indonesia, Vietnam, Philippines (red cluster):</strong><p>Lower GDP and HDI, moderate political stability. Predictors here aligned with community bonds and cultural collectivism.</p></li>
+                            <li><strong>Malaysia, Thailand (blue cluster):</strong><p>Middle-ground socioeconomic indicators. Predictors reflected a blend of personal and digital engagement.</p></li>
+                            <li><strong>Singapore (green cluster):</strong><p>High GDP, HDI, and political stability. Behaviours were strongly influenced by structural capacity and institutional trust.</p></li>
                           </ul>
                         </li>
                         <li>These results showed that socioeconomic context reshapes which factors matter most: lower-income clusters rely on cultural and community bonds, while higher-income contexts see digital access and systemic trust playing larger roles.</li>
@@ -189,28 +190,28 @@ const COVID19ProsocialBehaviour = () => {
                     <div className="outcomes-subsection">
                       <h4>1. Data Wrangling & Visualisation</h4>
                       <ul>
-                        <li>Cleaned, structured, and visualised large-scale survey data in R using functions like summary(), boxplots, and histograms</li>
+                        <li>Cleaned, structured, and visualised large-scale survey data in R using functions like summary(), boxplots, and histograms.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
                       <h4>2. Statistical Modelling</h4>
                       <ul>
-                        <li>Built and interpreted linear regression models to uncover significant predictors of behaviours across different groups</li>
+                        <li>Built and interpreted linear regression models to uncover significant predictors of behaviours across different groups.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
                       <h4>3. Comparative & Clustering Analysis</h4>
                       <ul>
-                        <li>Applied clustering techniques with external indicators to uncover meaningful regional similarities</li>
+                        <li>Applied k-means clustering techniques with external indicators to uncover meaningful regional similarities.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
                       <h4>4. Insight Generation</h4>
                       <ul>
-                        <li>Translated quantitative results into actionable insights about how culture, digital engagement, and socioeconomic factors shape prosocial responses in crises</li>
+                        <li>Translated quantitative results into actionable insights about how culture, digital engagement, and socioeconomic factors shape prosocial responses in crises.</li>
                       </ul>
                     </div>
                   </div>

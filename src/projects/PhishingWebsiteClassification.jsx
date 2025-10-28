@@ -95,42 +95,45 @@ const PhishingWebsiteClassification = () => {
                     <div className="methodology-subsection">
                       <h4>1. Data Collection & Preprocessing</h4>
                       <ul>
-                        <li>Collected and preprocessed a dataset containing website features relevant to phishing detection</li>
-                        <li>Handled missing values, outliers, and data quality issues using R data manipulation techniques</li>
-                        <li>Performed exploratory data analysis to understand feature distributions and correlations</li>
-                        <li>Split the dataset into training and testing sets for model evaluation</li>
+                        <li>Used a phishing website dataset containing URL, domain, and content-based features from the UCI Machine Learning Repository.</li>
+                        <li>Cleaned and prepared the data by removing missing values, outliers, and low-variance attributes.</li>
+                        <li>Conducted exploratory data analysis (EDA) using boxplots and summary statistics to identify skewed and extreme features.</li>
+                        <li>Split the dataset into <strong>70% training</strong> and <strong>30% testing</strong> sets for model development and evaluation.</li>
                       </ul>
                     </div>
                     
                     <div className="methodology-subsection">
                       <h4>2. Feature Engineering</h4>
                       <ul>
-                        <li>Analyzed and selected relevant features for phishing detection including URL characteristics, domain information, and website content indicators</li>
-                        <li>Applied feature scaling and normalization to ensure consistent model performance across different algorithms</li>
-                        <li>Conducted feature importance analysis to identify the most predictive variables</li>
-                        <li>Created derived features and handled categorical variables through appropriate encoding techniques</li>
+                        <li>Selected and regined relevant features such as URL structure, domain age, and page content indicators related to phishing detection.</li>
+                        <li>Applied <strong>feature scaling and normalisation</strong> for models sensitive to magnitude differences (e.g., ANN and SVM).</li>
+                        <li>Performed <strong>feature importance analysis</strong> later to determine which attributes contributed most to accurate classification.</li>
                       </ul>
                     </div>
                     
                     <div className="methodology-subsection">
                       <h4>3. Model Development</h4>
                       <ul>
-                        <li>Implemented <strong>Decision Tree</strong> classifier using recursive partitioning for interpretable rule-based classification</li>
-                        <li>Built <strong>Random Forest</strong> ensemble model to improve prediction accuracy and reduce overfitting</li>
-                        <li>Developed <strong>Support Vector Machine (SVM)</strong> with different kernel functions for high-dimensional classification</li>
-                        <li>Applied <strong>Naive Bayes</strong> classifier for probabilistic classification based on feature independence assumptions</li>
-                        <li>Used cross-validation techniques to optimize hyperparameters and prevent overfitting</li>
+                        <li>Built and compared several classification algorithms to detect phishing websites:</li>
+                        <ul>
+                          <li><strong>Decision Tree (rpart)</strong>: For interpretable, rule-based classification.</li>
+                          <li><strong>Naive Bayes (e1071)</strong>: For probabilistic predictions based on feature independence.</li>
+                          <li><strong>Bagging and Boosting</strong>: Ensembles to improve accuracy and reduce overfitting.</li>
+                          <li><strong>Random Forest</strong>: For multi-tree learning.</li>
+                          <li><strong>Artificial Neural Network (ANN)</strong>: For non-linear pattern detection.</li>
+                          <li><strong>Support Vector Machine (SVM): For high-dimensional data classification.</strong></li>
+                        </ul>
+                        <li>Used <strong>cross-validation</strong> and grid search tuning for Decision Tree, ANN, and SVM to optimise performance.</li>
                       </ul>
                     </div>
                     
                     <div className="methodology-subsection">
                       <h4>4. Model Evaluation</h4>
                       <ul>
-                        <li>Calculated comprehensive performance metrics including accuracy, precision, recall, and F1-score for each model</li>
-                        <li>Generated confusion matrices to analyze classification errors and identify patterns in misclassification</li>
-                        <li>Conducted statistical significance tests to compare model performance differences</li>
-                        <li>Performed ROC curve analysis and calculated AUC values to assess model discrimination ability</li>
-                        <li>Analyzed false positive and false negative rates to understand practical implications for cybersecurity applications</li>
+                        <li>Assessed models using <strong>accuracy, precision, recall, and F1-score</strong> metrics.</li>
+                        <li>Generated <strong>confusion matrices</strong> to examine misclassificattions between phishing and legitimate sites.</li>
+                        <li>Compared model performance using <strong>ROC curves and AUC values</strong> to evaluate discrimination ability.</li>
+                        <li>Analysed <strong>false positive</strong> (legitimate sites flagged as phishing) and <strong>false negative</strong> (phishing sites missed) rates to discuss practical cybersecurity implications.</li>
                       </ul>
                     </div>
                   </div>
