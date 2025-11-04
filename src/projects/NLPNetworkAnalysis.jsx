@@ -37,8 +37,7 @@ const NLPNetworkAnalysis = () => {
           {/* Project Overview Section - Left Column */}
           <div className="nlp-project-overview">
             <p>
-              This project was developed as part of my Data Analytics coursework to gain practical experience with <strong>Natural Language Processing (NLP)</strong> and 
-              <strong>network</strong> analysis using R. The aim was to build a corpus of diverse documents, preprocess the text, and explore relationships both 
+              This project was developed as part of my Data Analytics coursework to gain practical experience with <strong>Natural Language Processing (NLP)</strong> and <strong>network analysis</strong> using R. The aim was to build a corpus of diverse documents, preprocess the text, and explore relationships both 
               between documents and between the words themselves.
             </p>
             <p>
@@ -88,36 +87,36 @@ const NLPNetworkAnalysis = () => {
                     <div className="methodology-subsection">
                       <h4>1. Data Preparation & Preprocessing</h4>
                       <ul>
-                        <li>Converted raw blog text into .txt files with clear identifiers</li>
-                        <li>Applied text-cleaning steps in R: lowercasing, removing numbers, punctuation, and stopwords, stripping whitespace, and stemming words to their root forms</li>
-                        <li>Constructed a DTM with ~20 tokens after filtering sparse terms</li>
+                        <li>Collected and converted <strong>15 blog posts</strong> into .txt files labeled by topic (Food, Home, Lifestyle, Travel).</li>
+                        <li>Cleaned text using R (tm, SnowballC), including lowercased, removed stopwords, punctuation, and numbers, stripped whitespace, and stemmed words.</li>
+                        <li>Constructed a <strong>Document-Term Matrix (DTM)</strong> and filtered sparse terms, yielding ~20 key tokens for analysis.</li>
                       </ul>
                     </div>
                     
                     <div className="methodology-subsection">
                       <h4>2. Hierarchical Clustering</h4>
                       <ul>
-                        <li>Built a dendrogram using cosine similarity between documents</li>
-                        <li>Compared clustering results against true topic labels</li>
-                        <li>Found an overall clustering accuracy of 26.67%, suggesting limited topic separation due to overlapping vocabulary across categories</li>
+                        <li>Computed <strong>consine similarity</strong> between documents and applied <strong>Ward.D2 linkage</strong> to build a dendrogram.</li>
+                        <li>Compared clustering results to true topic labels and achieved <strong>26.67% accuracy (below the 33.33% baseline)</strong>, with <strong>kappa = 0.012</strong>, reflecting strong vocabulary overlap and limited dataset size rather than model error.</li>
+                        <li>Results indicated that topic boundaries were blurred by shared terms across categories.</li>
                       </ul>
                     </div>
                     
                     <div className="methodology-subsection">
                       <h4>3. Network Analysis</h4>
                       <ul>
-                        <li><strong>Document Network:</strong> Created a graph of documents based on shared terms. Central documents, such as <i>Food02_CupofJo.txt</i> and <i>Travel05_MelbourneGirl.txt</i>, were identified as hubs due to their broad thematic overlap</li>
-                        <li><strong>Token Network:</strong> Constructed a co-occurrence network of terms. Common words like <i>make, take,</i> and <i>one</i> appeared as central nodes, indicating wide contextual use</li>
-                        <li><strong>Bipartite Network:</strong> Built a two-mode network connecting documents to the tokens they contained, revealing clusters of documents bound together by shared key terms</li>
+                        <li><strong>Document Network:</strong> Built a graph of documents based on shared terms; <strong>Food02_CupofJo.txt</strong> and <strong>Travel05_MelbourneGirl.txt</strong> emerged as central hubs with broad thematic overlap.</li>
+                        <li><strong>Token Netwrok:</strong> Created a co-occurence graph of terms; frequent tokens such as <i>make, take,</i> and <i>one</i> appeared as highly connected nodes.</li>
+                        <li><strong>Bipartite Network:</strong> Formed a two-mode network linking documents and tokens, revealing clusters of documents tied together by shared vocabulary.</li>
                       </ul>
                     </div>
                     
                     <div className="methodology-subsection">
                       <h4>4. Evaluation of Techniques</h4>
                       <ul>
-                        <li><strong>Clustering</strong> offered a thematic overview but struggled with nuanced category distinctions</li>
-                        <li><strong>Network</strong> analysis provided deeper insights into specific connections, highlighting central terms and documents more effectively</li>
-                        <li>Proposed improvements included using <strong>TF-IDF weighting, Named Entity Recognition (NER),</strong> and <strong>topic modelling (LDA)</strong> for better document discrimination</li>
+                        <li>Clustering provided a <strong>broad thematic overview</strong> but lacked fine-grained category separation.</li>
+                        <li>Network analysis delivered <strong>deeper structural insights</strong>, identifying central documents and terms more effectively.</li>
+                        <li>Recommended enhancements: <strong>TF-IDF weighting, Named Entity Recognition (NER), and Topic Modelling (LDA)</strong> for stronger document discrimination.</li>
                       </ul>
                     </div>
                   </div>
@@ -128,55 +127,55 @@ const NLPNetworkAnalysis = () => {
                     <div className="insights-subsection">
                       <h4>1. Clustering Analysis</h4>
                       <ul>
-                        <li>The hierarchical clustering produced a dendrogram, but the accuracy was 26.67%, which was lower than the no-information rate (33.33%)</li>
-                        <li>The kappa statistic was nearly zero (0.012), showing almost no agreement between predicted and true categories</li>
+                        <li>The hierarchical clustering produced a dendrogram, but the <strong>accuracy was 26.67%</strong>, which was lower than the <strong>no-information rate (33.33%).</strong></li>
+                        <li>The <strong>kappa statistic was nearly zero (0.012)</strong>, showing almost no agreement between predicted and true categories.</li>
                         <li><strong>By category:</strong>
                           <ul>
-                            <li>Food articles had moderate recognition (33.3% sensitivity, 100% specificity)</li>
-                            <li>Home articles had slightly better performance (50% sensitivity, 69% specificity)</li>
-                            <li>Lifestyle and Travel articles had poor detection (20% sensitivity)</li>
+                            <li>Food articles had moderate recognition (33.3% sensitivity, 100% specificity).</li>
+                            <li>Home articles had slightly better performance (50% sensitivity, 69% specificity).</li>
+                            <li>Lifestyle and Travel articles had poor detection (20% sensitivity).</li>
                           </ul>
                         </li>
-                        <li>This showed that the model struggled because different topics shared overlapping vocabulary (e.g., travel blogs discussing food, lifestyle posts referencing home design)</li>
+                        <li>This showed that the model struggled because different topics shared <strong>overlapping vocabulary</strong> (e.g., travel blogs discussing food, lifestyle posts referencing home design).</li>
                       </ul>
                     </div>
                     
                     <div className="insights-subsection">
                       <h4>2. Document Network</h4>
                       <ul>
-                        <li>Central nodes in the network, such as <i>Food02_CupofJo.txt</i> and <i>Travel05_MelbourneGirl.txt</i>, connected widely across the graph</li>
-                        <li>These documents acted as hubs because they contained terms common to multiple themes (e.g., <i>eat, make, one</i>)</li>
-                        <li>The visualisation showed clusters of thematically similar documents forming naturally, even when clustering algorithms underperformed</li>
+                        <li>Central nodes in the network, such as <i>Food02_CupofJo.txt</i> and <i>Travel05_MelbourneGirl.txt</i>, connected widely across the graph.</li>
+                        <li>These documents acted as hubs because they contained terms common to multiple themes (e.g., <i>eat, make, one</i>).</li>
+                        <li>The visualisation showed <strong>clusters of thematically similar documents</strong> forming naturally, even when clustering algorithms underperformed.</li>
                       </ul>
                     </div>
                     
                     <div className="insights-subsection">
                       <h4>3. Token Network</h4>
                       <ul>
-                        <li>Frequent connector words (<i>make, take, one</i>) dominated the central positions, showing their linguistic versatility across categories</li>
-                        <li>Strong token-to-token relationships (visualised with thicker blue edges) revealed pairs of words that consistently appeared together in multiple documents, giving insight into recurring phrases/themes in lifestyle and travel writing</li>
-                        <li>However, these high-frequency generic words reduced discriminatory power, which is why <strong>TF-IDF weighting</strong> or <strong>topic modelling</strong> was suggested as an improvement</li>
+                        <li>Frequent connector words (<i>make, take, one</i>) occupied the <strong>central positions</strong> within the token co-occurence network.</li>
+                        <li>Strong <strong>token-to-token relationships</strong> (visualised with thicker blue edges) revealed pairs of words that consistently appeared together in multiple documents, showing recurring phrases/themes in lifestyle and travel writing.</li>
+                        <li>However, these high-frequency generic words <strong>reduced discriminatory power</strong>, which is why <strong>TF-IDF weighting</strong> or <strong>topic modelling (LDA)</strong> was suggested as an improvement.</li>
                       </ul>
                     </div>
                     
                     <div className="insights-subsection">
                       <h4>4. Bipartite Document–Token Network</h4>
                       <ul>
-                        <li>Visualisation clearly showed how documents grouped around shared tokens, making sub-communities more apparent than in clustering</li>
-                        <li>Central tokens like <i>take, make,</i> and <i>one</i> linked across multiple categories, while more specific terms (like <i>coffee</i> or <i>paint</i>) highlighted topic-specific clusters (Food and Home respectively)</li>
-                        <li>This reinforced that network analysis provided a richer, more interpretable structure than raw clustering</li>
+                        <li>The <strong>bipartite (two-mode) network</strong> clearly showed documents grouped around shared tokens, making sub-communities more apparent than in clustering.</li>
+                        <li>Central tokens (<i>take, make,</i> and <i>one</i>) linked across multiple categories, while more specific terms (<i>coffee</i> or <i>paint</i>) highlighted topic-specific clusters (Food and Home respectively).</li>
+                        <li>This reinforced that <strong>inter-topic connections</strong> and <strong>topic-specific language</strong> provided a richer, more interpretable structure than raw clustering.</li>
                       </ul>
                     </div>
                     
                     <div className="insights-subsection">
                       <h4>5. Comparing Clustering vs. Network Analysis</h4>
                       <ul>
-                        <li>Clustering gave a rough thematic grouping but was too rigid, misclassifying many documents</li>
-                        <li>Network analysis was more flexible, revealing nuanced relationships:
+                        <li>Clustering gave a <strong>rough thematic grouping</strong> but was too rigid, misclassifying many documents.</li>
+                        <li><strong>Network analysis</strong> was more flexible, revealing nuanced relationships:
                           <ul>
-                            <li>Which words connected different categories</li>
-                            <li>Which documents acted as bridges across themes</li>
-                            <li>Which tokens dominated within-topic vs. across-topic use</li>
+                            <li>Which words <strong>connected different categories</strong>,</li>
+                            <li>Which documents <strong>acted as bridges across themes</strong>, and</li>
+                            <li>Which tokens <strong>dominated within-topic vs. across-topic use.</strong></li>
                           </ul>
                         </li>
                       </ul>
@@ -189,28 +188,28 @@ const NLPNetworkAnalysis = () => {
                     <div className="outcomes-subsection">
                       <h4>1. Text Preprocessing & NLP</h4>
                       <ul>
-                        <li>Learned to clean and standardise text data using R (<strong>tm, SnowballC</strong>)</li>
+                        <li>Cleaned and standardised raw text using data using R (tm, SnowballC), applying tokenisation, stopword removal, and stemming for consistent analysis.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
                       <h4>2. Statistical & Network Analysis</h4>
                       <ul>
-                        <li>Built and interpreted clustering models, document networks, token networks, and bipartite networks</li>
+                        <li>Built and interpreted <strong>hierarchical clustering, document networks, token networks</strong> and <strong>bipartite networks</strong> to explore relationships in text data.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
                       <h4>3. Insight Generation</h4>
                       <ul>
-                        <li>Compared clustering and network approaches, identifying strengths, weaknesses, and potential improvements</li>
+                        <li>Compared <strong>clustering vs. network methods</strong>, identifying each approach's strengths, limitations, and areas for improvement (e.g. TF-IDF, LDA, NER).</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
                       <h4>4. Visualisation</h4>
                       <ul>
-                        <li>Enhanced network graphs with features like node size, colour, and weighted edges to highlight key structures</li>
+                        <li>Enhanced <strong>network visualisations</strong> with node sizing, colour gradients, and weighted edges to emphasise key connections and thematic clusters.</li>
                       </ul>
                     </div>
                   </div>

@@ -105,7 +105,7 @@ const PhishingWebsiteClassification = () => {
                     <div className="methodology-subsection">
                       <h4>2. Feature Engineering</h4>
                       <ul>
-                        <li>Selected and regined relevant features such as URL structure, domain age, and page content indicators related to phishing detection.</li>
+                        <li>Selected and refined relevant features such as URL structure, domain age, and page content indicators related to phishing detection.</li>
                         <li>Applied <strong>feature scaling and normalisation</strong> for models sensitive to magnitude differences (e.g., ANN and SVM).</li>
                         <li>Performed <strong>feature importance analysis</strong> later to determine which attributes contributed most to accurate classification.</li>
                       </ul>
@@ -144,40 +144,45 @@ const PhishingWebsiteClassification = () => {
                     <div className="insights-subsection">
                       <h4>1. Model Performance</h4>
                       <ul>
-                        <li><strong>Random Forest</strong> achieved the highest overall accuracy, demonstrating the effectiveness of ensemble methods for phishing detection</li>
-                        <li><strong>SVM</strong> showed strong performance with high precision, making it effective for minimizing false positives in security applications</li>
-                        <li><strong>Decision Tree</strong> provided good interpretability but lower accuracy compared to ensemble methods</li>
-                        <li><strong>Naive Bayes</strong> performed adequately for baseline comparison but was outperformed by more sophisticated algorithms</li>
+                        <li>Among all seven models, <strong>Boosting</strong> and <strong>Artificial Neural Network (ANN)</strong> achieved the <strong>highest accuracy (~72.2%)</strong>, demonstrating the strong predictive ability of ensemble and neural approaches.</li>
+                        <li><strong>ANN</strong> produced the <strong>highest AUC value (0.7599)</strong>, showing the best ability to distinguish phishing and neural approaches.</li>
+                        <li><strong>Decision Tree</strong> achieved <strong>0.7202 accuracy</strong> and <strong>0.7415 AUC</strong>, balancing good interpretability with strong performance.</li>
+                        <li><strong>Random Forest</strong> followed closely <strong>(0.6960 accuracy, 0.7334 AUC)</strong>, offering consistent but slightly lower results.</li>
+                        <li><strong>Bagging (0.6908 accuracy)</strong> and <strong>SVM (0.6926 accuracy)</strong> showed moderate performance, while <strong>Naive Bayes (0.6494 accuracy)</strong> served as a baseline model.</li>
                       </ul>
                     </div>
                     
                     <div className="insights-subsection">
-                      <h4>2. Feature Importance</h4>
+                      <h4>2. ROC and Discrimination Analysis</h4>
                       <ul>
-                        <li>URL-based features (domain length, suspicious characters, subdomain count) were among the most predictive indicators</li>
-                        <li>Website content features (number of forms, external links, pop-ups) showed strong correlation with phishing classification</li>
-                        <li>Domain age and SSL certificate information provided valuable signals for distinguishing legitimate from malicious sites</li>
-                        <li>Feature importance analysis revealed that a combination of technical and content-based indicators was most effective</li>
+                        <li>AUC values across models confirmed good classification performance, led by <strong>ANN (0.7599), Decision Tree (0.7415), Random Forest (0.7334), and Boosting (0.7305).</strong></li>
+                        <li>The ROC curves demonstrated that ANN most effectively separated phishing from legitimate websites.</li>
                       </ul>
                     </div>
                     
                     <div className="insights-subsection">
-                      <h4>3. Classification Results</h4>
+                      <h4>3. Feature Importance</h4>
                       <ul>
-                        <li>All models achieved accuracy rates above 85%, with Random Forest reaching over 95% accuracy on the test set</li>
-                        <li>Precision and recall metrics showed that models were particularly effective at identifying phishing sites (high recall) while maintaining low false positive rates</li>
-                        <li>Cross-validation results demonstrated consistent performance across different data splits, indicating robust model generalization</li>
-                        <li>ROC curve analysis showed excellent discrimination ability with AUC values above 0.9 for the best-performing models</li>
+                        <li>Top features across Decision Tree, Bagging, Random Forest, and Boosting models included <strong>A01, A18, and A23</strong>, consistently ranked as the most important predictors.</li>
+                        <li>These features correspond to <strong>URL, domain, and content-based characteristics,</strong> proving that a combination of technical and structural signals was essential for accurate classification.</li>
                       </ul>
                     </div>
                     
                     <div className="insights-subsection">
-                      <h4>4. Error Analysis</h4>
+                      <h4>4. Classification Trade-offs</h4>
                       <ul>
-                        <li>False positives primarily occurred with legitimate websites that had unusual URL structures or limited content</li>
-                        <li>False negatives were more common with sophisticated phishing sites that closely mimicked legitimate website designs</li>
-                        <li>Error patterns suggested that combining multiple feature types (URL, content, and technical indicators) improved detection accuracy</li>
-                        <li>Analysis revealed that certain website categories (e.g., new domains, international sites) were more challenging to classify accurately</li>
+                        <li><strong>Ensemble models (Boosting, Random Forest) and ANN</strong> achieved the strongest overall results.</li>
+                        <li><strong>Decision Tree</strong> maintained competitive accuracy while providing valuable interpretability.</li>
+                        <li><strong>SVM</strong> delivered good precision but lower recall and AUC, while Naive Bayes served as a simple baseline.</li>
+                      </ul>
+                    </div>
+
+                    <div className="insights-subsection">
+                      <h4>5. Error Analysis</h4>
+                      <ul>
+                        <li>False positives often came from legitimate websites with irregular or complex URL patterns or minimal page content.</li>
+                        <li>False negatives typically occurred in sophisticated phishing sites closely resembling real domains.</li>
+                        <li>The report noted that combining URL, content, and domain/SSL features reduced both error types.</li>
                       </ul>
                     </div>
                   </div>
@@ -186,38 +191,46 @@ const PhishingWebsiteClassification = () => {
                 {activeTab === 'outcomes' && (
                   <div className="phishing-tab-panel">
                     <div className="outcomes-subsection">
-                      <h4>1. Machine Learning</h4>
+                      <h4>1. Data Handling and Preparation</h4>
                       <ul>
-                        <li>Gained hands-on experience with multiple supervised learning algorithms including Decision Trees, Random Forest, SVM, and Naive Bayes</li>
-                        <li>Learned to implement and compare different machine learning models using R packages like <strong>rpart, randomForest, e1071,</strong> and <strong>naivebayes</strong></li>
-                        <li>Developed skills in hyperparameter tuning and cross-validation techniques for model optimization</li>
+                        <li>Processed and prepared a phishing website dataset from the UCI Machine Learning Repository, consisting of URL, domain, and content-based features.</li>
+                        <li>Cleaned the dataset by removing missing values, low-variance and zero-variance attributes, and outliers.</li>
+                        <li>Split data into 70% training and 30% testing subsets to ensure fair model evaluation.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
-                      <h4>2. Data Analysis</h4>
+                      <h4>2. Model Development and Training</h4>
                       <ul>
-                        <li>Mastered data preprocessing techniques including handling missing values, feature scaling, and categorical variable encoding</li>
-                        <li>Conducted comprehensive exploratory data analysis to understand feature distributions and relationships</li>
-                        <li>Applied feature engineering techniques to create meaningful predictors for classification tasks</li>
+                        <li>Implemented and compared seven machine learning algorithms — Decision Tree, Naive Bayes, Bagging, Boosting, Random Forest, Artificial Neural Network (ANN), and Support Vector Machine (SVM).</li>
+                        <li>Applied cross-validation and hyperparameter tuning for Decision Tree, ANN, and SVM to optimise model performance.</li>
+                        <li>Conducted training using R packages such as rpart, randomForest, adabag, nnet, and e1071.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
-                      <h4>3. Model Evaluation</h4>
+                      <h4>3. Feature Analysis and Interpretation</h4>
                       <ul>
-                        <li>Learned to calculate and interpret comprehensive evaluation metrics including accuracy, precision, recall, F1-score, and AUC</li>
-                        <li>Developed skills in generating and analyzing confusion matrices to understand model performance patterns</li>
-                        <li>Gained experience in statistical significance testing for comparing model performance</li>
+                        <li>Conducted feature importance analysis across tree-based and ensemble models to identify the most predictive variables.</li>
+                        <li>Found that features A01, A18, and A23 consistently ranked highest, corresponding to critical phishing indicators related to URL composition, domain behaviour, and page structure.</li>
                       </ul>
                     </div>
                     
                     <div className="outcomes-subsection">
-                      <h4>4. Cybersecurity</h4>
+                      <h4>4. Performance Evaluation</h4>
                       <ul>
-                        <li>Gained practical understanding of phishing attack vectors and website characteristics that indicate malicious intent</li>
-                        <li>Learned to identify and analyze features that distinguish legitimate websites from phishing attempts</li>
-                        <li>Developed insights into the practical applications of machine learning in cybersecurity and threat detection</li>
+                        <li>Evaluated models using accuracy, precision, recall, F1-score, ROC curves, and AUC metrics.</li>
+                        <li>Boosting and ANN achieved the highest accuracy (~0.722), with ANN showing the strongest AUC (0.7599).</li>
+                        <li>Decision Tree performed competitively while remaining easily interpretable.</li>
+                      </ul>
+                    </div>
+
+                    <div className="outcomes-subsection">
+                      <h4>5. Error and Stability Analysis</h4>
+                      <ul>
+                        <li>Analysed misclassification trends using confusion matrices and model diagnostics.</li>
+                        <li>Found that false positives came from legitimate but irregular URLs, while false negatives stemmed from realistic phishing sites.</li>
+                        <li>Cross-validation confirmed stable generalisation with minimal overfitting across all tuned models.</li>
                       </ul>
                     </div>
                   </div>

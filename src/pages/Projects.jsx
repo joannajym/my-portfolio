@@ -69,7 +69,7 @@ const projects = [
   {
     title: "Faire",
     description: "A hackathon project designed to make digital learning more accessible for students with dyslexia.",
-    tags: ["HTML", "CSS", "NextJS"],
+    tags: ["HTML", "CSS", "JavaScript", "NextJS", "ReactJS"],
     year: "2025",
     id: "faire"
   },
