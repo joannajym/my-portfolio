@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: "The Weathered Game of Oz",
-    description: "A strategic board game simulation exploring resource management and environmental adaptation in a dynamic ecosystem.",
+    description: "A simulation exploring resource management and environmental adaptation in a dynamic ecosystem.",
     tags: ["Python", "Jupyter", "NumPy", "Matplotlib"],
     year: "2024",
     id: "weathered-game-of-oz"
@@ -101,7 +101,8 @@ const projects = [
     title: "Business Case for Implementing Enterprise Systems",
     description: "A strategic ERP business case evaluating system options, costs, and implementation plans for enterprise-wide digital transformation.",
     tags: ["ERP"],
-    year: "2023"
+    year: "2023",
+    id: "business-case-enterprise-systems"
   }
 ];
 
@@ -147,6 +148,8 @@ const Projects = () => {
       navigate('/phishing-website-classification');
     } else if (project.id === "faire") {
       navigate('/faire');
+    } else if (project.id === "business-case-enterprise-systems") {
+      navigate('/business-case-enterprise-systems');
     } else {
       // For other projects, you can add more functionality later
       console.log("Clicked on project:", project.title);

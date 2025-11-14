@@ -161,7 +161,12 @@ function Contact() {
                 <a href="mailto:joannamjy@gmail.com" className="social-link">
                   <FiMail />
                 </a>
-                <a href="/path-to-your-resume.pdf" target="_blank" rel="noopener noreferrer" className="social-link">
+                <a
+                  href={`${process.env.PUBLIC_URL}/JOANNA%20MOY.pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
                   <FiFileText />
                 </a>
               </div>

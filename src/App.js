@@ -14,6 +14,7 @@ import COVID19ProsocialBehaviour from './projects/COVID19ProsocialBehaviour';
 import NLPNetworkAnalysis from './projects/NLPNetworkAnalysis';
 import PhishingWebsiteClassification from './projects/PhishingWebsiteClassification';
 import Faire from './projects/Faire';
+import BusinessCaseEnterpriseSystems from './projects/BusinessCaseEnterpriseSystems';
 import './App.css';
 
 function MainLayout() {
@@ -54,6 +55,7 @@ function App() {
           <Route path="/nlp-network-analysis" element={<NLPNetworkAnalysis />} />
           <Route path="/phishing-website-classification" element={<PhishingWebsiteClassification />} />
           <Route path="/faire" element={<Faire />} />
+          <Route path="/business-case-enterprise-systems" element={<BusinessCaseEnterpriseSystems />} />
         </Routes>
       </div>
     </Router>
